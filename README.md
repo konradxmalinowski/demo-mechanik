@@ -2,7 +2,7 @@
 
 Działające demo strony dla warsztatu samochodowego / mechanika — zbudowane w Angular + TypeScript z Angular Signals i Tailwind CSS.
 
-Część portfolio [Konrad Malinowski](https://malinowski.dev) — pokazuje, jak może wyglądać strona Twojej firmy.
+Część portfolio [Konrad Malinowski](http://konrad.malinowski.ct8.pl) — pokazuje, jak może wyglądać strona Twojej firmy.
 
 **Live demo:** https://konradxmalinowski.github.io/demo-mechanik/
 
@@ -55,4 +55,4 @@ src/
 ## Zainteresowany podobną stroną?
 
 Napisz: [malinowski.konrad45@gmail.com](mailto:malinowski.konrad45@gmail.com)  
-Portfolio: [malinowski.dev](https://malinowski.dev)
+Portfolio: [konrad.malinowski.ct8.pl](http://konrad.malinowski.ct8.pl)
