@@ -6,11 +6,10 @@ module.exports = {
     extend: {
       colors: {
         mechanik: {
-          bg: '#0A0A0B',
+          noir: '#0A0A0B',
           red: '#EF4444',
           yellow: '#FACC15',
-          gray: '#18181B',
-          light: '#F4F4F5',
+          light: '#F9FAFB',
         },
       },
     },

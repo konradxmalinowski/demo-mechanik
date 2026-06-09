@@ -2,12 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* JetBrains Mono — loaded from Google Fonts CDN for demo purposes */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
 :root {
-  --color-bg: #0A0A0B;
-  --color-text: #F4F4F5;
+  --color-noir: #0A0A0B;
   --color-red: #EF4444;
   --color-yellow: #FACC15;
-  --color-gray: #18181B;
+  --color-light: #F9FAFB;
+  --color-bg: var(--color-light);
+  --color-text: var(--color-noir);
+}
+
+.dark {
+  --color-bg: var(--color-noir);
+  --color-text: var(--color-light);
 }
 
 body {
@@ -15,4 +24,10 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* JetBrains Mono utility */
+.mono,
+.font-mono {
+  font-family: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'Courier New', monospace;
 }
