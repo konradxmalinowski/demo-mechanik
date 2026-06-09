@@ -20,7 +20,7 @@ const AUTO_REPAIR_SCHEMA = {
   '@type': 'AutoRepair',
   name: 'APEX Mechanik',
   description: 'Profesjonalny serwis samochodowy — diagnostyka komputerowa, naprawy mechaniczne, klimatyzacja, hamulce, zawieszenie, elektryka.',
-  url: 'https://konradmalinowski.pl/demo-mechanik',
+  url: 'http://konrad.malinowski.ct8.pl/',
   telephone: '+48500100200',
   email: 'kontakt@apex-mechanik.pl',
   address: {
