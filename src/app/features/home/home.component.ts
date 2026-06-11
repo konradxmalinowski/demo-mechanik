@@ -71,7 +71,8 @@ const ADVANTAGES = [
   template: `
     <div style="background:#0A0A0B; color:#fff">
       <!-- Hero -->
-      <section class="relative min-h-screen flex items-center pt-16 overflow-hidden" style="background:linear-gradient(135deg,#0A0A0B,#111113,#0A0A0B)" aria-label="Sekcja główna">
+      <section class="relative min-h-[100vh] lg:min-h-[110vh] flex items-center pt-16 overflow-hidden" style="background-image:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80');background-size:cover;background-position:center" aria-label="Sekcja główna">
+        <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(10,10,11,0.88),rgba(17,17,19,0.85),rgba(10,10,11,0.88))"></div>
         <div class="absolute inset-0 opacity-5" style="background-image:linear-gradient(#EF4444 1px,transparent 1px),linear-gradient(90deg,#EF4444 1px,transparent 1px);background-size:60px 60px"></div>
 
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
@@ -104,9 +105,9 @@ const ADVANTAGES = [
             </div>
 
             <div class="grid grid-cols-3 gap-8 mt-16 pt-8" style="border-top:1px solid rgba(255,255,255,.1)">
-              <div><p class="text-3xl font-black" style="color:#EF4444">15+</p><p class="text-sm mt-1" style="color:#6b7280">lat doświadczenia</p></div>
-              <div><p class="text-3xl font-black" style="color:#EF4444">3 200+</p><p class="text-sm mt-1" style="color:#6b7280">zadowolonych klientów</p></div>
-              <div><p class="text-3xl font-black" style="color:#EF4444">4.9/5</p><p class="text-sm mt-1" style="color:#6b7280">średnia ocen</p></div>
+              <div><p class="text-3xl font-black" style="color:#fff">15+</p><p class="text-sm mt-1" style="color:#6b7280">lat doświadczenia</p></div>
+              <div><p class="text-3xl font-black" style="color:#fff">3 200+</p><p class="text-sm mt-1" style="color:#6b7280">zadowolonych klientów</p></div>
+              <div><p class="text-3xl font-black" style="color:#fff">4.9/5</p><p class="text-sm mt-1" style="color:#6b7280">średnia ocen</p></div>
             </div>
           </div>
         </div>

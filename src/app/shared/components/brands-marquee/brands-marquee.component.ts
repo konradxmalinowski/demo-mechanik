@@ -31,6 +31,11 @@ import { BRANDS_DATA } from '../../../data/brands.data';
     }
 
     .brand-item {
+      flex-shrink: 0;
+      width: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       filter: grayscale(1) brightness(0.55);
       transition: filter 200ms ease;
       cursor: default;
@@ -58,7 +63,7 @@ import { BRANDS_DATA } from '../../../data/brands.data';
           <!-- Doubled list for seamless loop -->
           @for (brand of doubledBrands; track $index) {
             <div
-              class="brand-item flex-shrink-0 mx-8 flex items-center justify-center"
+              class="brand-item"
               role="listitem"
               [attr.aria-label]="brand.name"
             >
