@@ -30,7 +30,7 @@ import { SERVICES_DATA } from '../../data/services.data';
           @for (service of services; track service.id) {
             <article class="bg-[#111113] border border-white/5 rounded-xl p-6 hover:border-[#EF4444]/30 transition-colors">
               <div class="w-12 h-12 bg-[#EF4444]/10 rounded-lg flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-[#EF4444]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="service.icon" />
                 </svg>
               </div>
@@ -42,7 +42,7 @@ import { SERVICES_DATA } from '../../data/services.data';
               </div>
               <a
                 routerLink="/rezerwacja"
-                class="inline-flex w-full items-center justify-center px-4 py-2 bg-[#EF4444] text-white text-sm font-semibold rounded-lg hover:bg-[#DC2626] transition-colors"
+                class="inline-flex w-full items-center justify-center px-4 py-2 text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-colors" style="background:var(--apex-accent)"
               >
                 Umów wizytę
               </a>

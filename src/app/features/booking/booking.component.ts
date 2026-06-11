@@ -46,24 +46,24 @@ function getCalendarDays(year: number, month: number): (number | null)[] {
   ],
   styles: [`
     .step-bubble { width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .875rem; font-weight: 700; transition: all .3s; }
-    .step-bubble.active { background: #EF4444; color: #fff; }
+    .step-bubble.active { background: var(--apex-accent); color: #fff; }
     .step-bubble.inactive { background: rgba(255,255,255,.1); color: #6b7280; }
     .step-line { height: 2px; width: 2.5rem; border-radius: 1px; transition: background .3s; }
-    .step-line.filled { background: #EF4444; }
+    .step-line.filled { background: var(--apex-accent); }
     .step-line.empty { background: rgba(255,255,255,.1); }
     .service-btn { border-radius: .75rem; border-width: 1px; border-style: solid; display: flex; align-items: flex-start; gap: .75rem; padding: 1rem; text-align: left; transition: all .2s; cursor: pointer; }
-    .service-btn.selected { border-color: #EF4444; background: rgba(239,68,68,.1); }
+    .service-btn.selected { border-color: var(--apex-accent); background: rgba(239,68,68,.1); }
     .service-btn.unselected { border-color: rgba(255,255,255,.1); background: #111113; }
     .service-icon { width: 2rem; height: 2rem; border-radius: .5rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: .125rem; }
-    .service-icon.selected { background: #EF4444; }
+    .service-icon.selected { background: var(--apex-accent); }
     .service-icon.unselected { background: rgba(255,255,255,.1); }
     .cal-day { aspect-ratio: 1; border-radius: .5rem; font-size: .875rem; font-weight: 500; display: flex; align-items: center; justify-content: center; transition: all .15s; }
     .cal-day:not([disabled]):hover { background: rgba(239,68,68,.2); }
-    .cal-day.selected-day { background: #EF4444; color: #fff; }
+    .cal-day.selected-day { background: var(--apex-accent); color: #fff; }
     .cal-day.past-day { opacity: .3; cursor: not-allowed; }
     .cal-day.normal-day { color: #9ca3af; }
     .time-slot { padding: .75rem; border-radius: .75rem; border-width: 1px; border-style: solid; font-size: .875rem; font-weight: 500; transition: all .2s; cursor: pointer; }
-    .time-slot.selected { background: #EF4444; color: #fff; border-color: transparent; }
+    .time-slot.selected { background: var(--apex-accent); color: #fff; border-color: transparent; }
     .time-slot.unselected { background: #111113; border-color: rgba(255,255,255,.1); color: #d1d5db; }
   `],
   template: `
@@ -293,11 +293,11 @@ function getCalendarDays(year: number, month: number): (number | null)[] {
             <button type="button" (click)="signals.nextStep()"
               [disabled]="!signals.canProceed()"
               class="px-8 py-3 font-semibold rounded-lg transition-colors"
-              style="background:#EF4444; color:#fff">Dalej</button>
+              style="background:var(--apex-accent); color:#fff">Dalej</button>
           } @else {
             <button type="button" (click)="onSubmit()"
               class="px-8 py-3 font-semibold rounded-lg transition-colors"
-              style="background:#EF4444; color:#fff">Zarezerwuj</button>
+              style="background:var(--apex-accent); color:#fff">Zarezerwuj</button>
           }
         </div>
       </div>

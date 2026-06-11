@@ -46,7 +46,7 @@ import {
     .badge-zalecane { background: rgba(250,204,21,.1); color: #FACC15; border: 1px solid rgba(250,204,21,.3); }
     .badge-informacyjne { background: rgba(59,130,246,.1); color: #60a5fa; border: 1px solid rgba(59,130,246,.3); }
     .tab-btn { padding: .625rem 1rem; border-radius: .5rem; font-size: .875rem; font-weight: 600; transition: all .2s; cursor: pointer; border: none; }
-    .tab-btn.active { background: #EF4444; color: #fff; }
+    .tab-btn.active { background: var(--apex-accent); color: #fff; }
     .tab-btn.inactive { background: transparent; color: #9ca3af; }
     .tab-btn.inactive:hover { color: #fff; background: rgba(255,255,255,.05); }
     .timeline-item { display: flex; gap: 1rem; position: relative; }
@@ -175,8 +175,8 @@ import {
               <div class="space-y-6">
                 @for (item of repairHistory; track item.id) {
                   <div class="timeline-item">
-                    <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" style="background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3)">
-                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="color:#EF4444">
+                    <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15)">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="color:rgba(255,255,255,.7)">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                       </svg>
                     </div>

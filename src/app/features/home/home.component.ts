@@ -93,7 +93,7 @@ const ADVANTAGES = [
             </p>
 
             <div class="flex flex-wrap gap-4">
-              <a routerLink="/rezerwacja" class="inline-flex items-center gap-2 px-8 py-4 font-semibold rounded-lg text-lg transition-all duration-200 hover:scale-105" style="background:#EF4444;color:#fff">
+              <a routerLink="/rezerwacja" class="inline-flex items-center gap-2 px-8 py-4 font-semibold rounded-lg text-lg transition-all duration-200 hover:scale-105" style="background:var(--apex-accent);color:#fff">
                 Umów wizytę
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -130,7 +130,7 @@ const ADVANTAGES = [
               @for (service of services; track service.id) {
                 <article class="rounded-xl p-6 hover:scale-105 transition-transform duration-300" style="background:#111113;border:1px solid rgba(255,255,255,.05)">
                   <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style="background:rgba(239,68,68,.1)">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="color:#EF4444">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="color:#fff">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="service.icon" />
                     </svg>
                   </div>
@@ -140,7 +140,7 @@ const ADVANTAGES = [
                     <span>{{ service.approxTime }}</span>
                     <span>od {{ service.approxCost }}</span>
                   </div>
-                  <a routerLink="/rezerwacja" class="inline-flex w-full items-center justify-center px-4 py-2 font-semibold text-sm rounded-lg transition-colors hover:opacity-90" style="background:#EF4444;color:#fff">
+                  <a routerLink="/rezerwacja" class="inline-flex w-full items-center justify-center px-4 py-2 font-semibold text-sm rounded-lg transition-colors hover:opacity-90" style="background:var(--apex-accent);color:#fff">
                     Umów wizytę
                   </a>
                 </article>
@@ -178,12 +178,12 @@ const ADVANTAGES = [
             <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-8 relative">
               @for (step of processSteps; track step.number) {
                 <div class="flex flex-col items-center text-center">
-                  <div class="relative z-10 w-20 h-20 rounded-full border-2 flex items-center justify-center mb-4" style="background:#0A0A0B;border-color:#EF4444">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="color:#EF4444">
+                  <div class="relative z-10 w-20 h-20 rounded-full border-2 flex items-center justify-center mb-4" style="background:#0A0A0B;border-color:rgba(255,255,255,.2)">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="color:rgba(255,255,255,.7)">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" [attr.d]="step.icon" />
                     </svg>
                   </div>
-                  <span class="text-xs font-bold mb-2 px-2 py-0.5 rounded-full" style="background:rgba(239,68,68,.1);color:#EF4444">Krok {{ step.number }}</span>
+                  <span class="text-xs font-bold mb-2 px-2 py-0.5 rounded-full" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.6)">Krok {{ step.number }}</span>
                   <h3 class="font-bold mb-1">{{ step.title }}</h3>
                   <p class="text-sm" style="color:#9ca3af">{{ step.description }}</p>
                 </div>
@@ -204,8 +204,8 @@ const ADVANTAGES = [
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             @for (adv of advantages; track adv.title) {
               <div class="flex items-start gap-4 p-6 rounded-xl" style="background:#111113;border:1px solid rgba(255,255,255,.05)">
-                <div class="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(239,68,68,.1)">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="color:#EF4444">
+                <div class="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(255,255,255,.06)">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="color:rgba(255,255,255,.7)">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="adv.icon" />
                   </svg>
                 </div>
@@ -319,7 +319,7 @@ const ADVANTAGES = [
         <div class="max-w-2xl mx-auto px-4">
           <h2 class="text-4xl font-black mb-4">Gotowy na serwis premium?</h2>
           <p class="mb-8" style="color:#9ca3af">Umów wizytę online w 2 minuty — bez kolejek, bez stresu.</p>
-          <a routerLink="/rezerwacja" class="inline-flex items-center gap-3 px-10 py-4 font-bold text-lg rounded-xl transition-all hover:scale-105" style="background:#EF4444;color:#fff">
+          <a routerLink="/rezerwacja" class="inline-flex items-center gap-3 px-10 py-4 font-bold text-lg rounded-xl transition-all hover:scale-105" style="background:var(--apex-accent);color:#fff">
             Umów wizytę teraz
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
