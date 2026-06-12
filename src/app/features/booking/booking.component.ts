@@ -337,12 +337,14 @@ export class BookingComponent implements OnInit {
     if (this.calMonth() === 0) { this.calYear.update(y => y - 1); this.calMonth.set(11); }
     else { this.calMonth.update(m => m - 1); }
     this.selectedDay.set(null);
+    this.signals.calendarForm.patchValue({ date: '' });
   }
 
   protected nextMonth(): void {
     if (this.calMonth() === 11) { this.calYear.update(y => y + 1); this.calMonth.set(0); }
     else { this.calMonth.update(m => m + 1); }
     this.selectedDay.set(null);
+    this.signals.calendarForm.patchValue({ date: '' });
   }
 
   protected selectDate(day: number): void {
