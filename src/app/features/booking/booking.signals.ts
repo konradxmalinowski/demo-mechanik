@@ -1,4 +1,5 @@
 import { Injectable, signal, computed } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export interface BookingState {
@@ -45,18 +46,27 @@ export class BookingSignals {
     email: ['', [Validators.required, Validators.email]],
   });
 
+  // Bridge reactive-form state into signals so `canProceed` re-evaluates on
+  // user input. Without this, computed() memoizes on the `step` signal alone
+  // and caches stale form validity, deadlocking the wizard at step 1.
+  private readonly vehicleStatus = toSignal(this.vehicleForm.statusChanges, { initialValue: this.vehicleForm.status });
+  private readonly servicesValue = toSignal(this.servicesForm.valueChanges, { initialValue: this.servicesForm.value });
+  private readonly calendarStatus = toSignal(this.calendarForm.statusChanges, { initialValue: this.calendarForm.status });
+  private readonly timeStatus = toSignal(this.timeForm.statusChanges, { initialValue: this.timeForm.status });
+  private readonly contactStatus = toSignal(this.contactForm.statusChanges, { initialValue: this.contactForm.status });
+
   /** Computed: whether the current step's form allows advancing */
   readonly canProceed = computed<boolean>(() => {
     const s = this.step();
     switch (s) {
-      case 1: return this.vehicleForm.valid;
+      case 1: return this.vehicleStatus() === 'VALID';
       case 2: {
-        const v = this.servicesForm.get('services')?.value as string[];
+        const v = this.servicesValue()?.services as string[];
         return Array.isArray(v) && v.length > 0;
       }
-      case 3: return this.calendarForm.valid;
-      case 4: return this.timeForm.valid;
-      case 5: return this.contactForm.valid;
+      case 3: return this.calendarStatus() === 'VALID';
+      case 4: return this.timeStatus() === 'VALID';
+      case 5: return this.contactStatus() === 'VALID';
       default: return true;
     }
   });
