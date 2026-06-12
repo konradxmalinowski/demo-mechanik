@@ -42,7 +42,7 @@ import {
   styles: [`
     :host { display: block; }
     .mono { font-family: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'Courier New', monospace; }
-    .badge-pilne { background: rgba(239,68,68,.2); color: #f87171; border: 1px solid rgba(239,68,68,.3); }
+    .badge-pilne { background: rgb(var(--apex-accent-rgb) / .2); color: #f87171; border: 1px solid rgb(var(--apex-accent-rgb) / .3); }
     .badge-zalecane { background: rgba(250,204,21,.1); color: #FACC15; border: 1px solid rgba(250,204,21,.3); }
     .badge-informacyjne { background: rgba(59,130,246,.1); color: #60a5fa; border: 1px solid rgba(59,130,246,.3); }
     .tab-btn { padding: .625rem 1rem; border-radius: .5rem; font-size: .875rem; font-weight: 600; transition: all .2s; cursor: pointer; border: none; }
@@ -69,8 +69,8 @@ import {
             <h1 class="text-4xl font-black mb-1 mono">STREFA KLIENTA</h1>
             <p class="mono text-sm" style="color:#6b7280">// diagnostic_dashboard_v2.0</p>
           </div>
-          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold mono" style="background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#EF4444">
-            <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background:#EF4444"></span>
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold mono" style="background:rgb(var(--apex-accent-rgb) / .1);border:1px solid rgb(var(--apex-accent-rgb) / .3);color:var(--apex-accent)">
+            <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background:var(--apex-accent)"></span>
             DEMO MODE
           </span>
         </div>

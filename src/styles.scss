@@ -13,6 +13,9 @@
   --color-bg: var(--color-light);
   --color-text: var(--color-noir);
   --apex-accent: #EF4444;
+  /* RGB channels of --apex-accent for translucent derivatives:
+     rgb(var(--apex-accent-rgb) / .1) — keep in sync with --apex-accent */
+  --apex-accent-rgb: 239 68 68;
 }
 
 .dark {

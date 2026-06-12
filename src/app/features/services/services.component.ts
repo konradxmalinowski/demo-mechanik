@@ -28,8 +28,8 @@ import { SERVICES_DATA } from '../../data/services.data';
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           @for (service of services; track service.id) {
-            <article class="bg-[#111113] border border-white/5 rounded-xl p-6 hover:border-[#EF4444]/30 transition-colors">
-              <div class="w-12 h-12 bg-[#EF4444]/10 rounded-lg flex items-center justify-center mb-4">
+            <article class="bg-[#111113] border border-white/5 rounded-xl p-6 hover:border-[rgb(var(--apex-accent-rgb)/0.3)] transition-colors">
+              <div class="w-12 h-12 bg-[rgb(var(--apex-accent-rgb)/0.1)] rounded-lg flex items-center justify-center mb-4">
                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="service.icon" />
                 </svg>

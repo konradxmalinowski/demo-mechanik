@@ -52,13 +52,13 @@ function getCalendarDays(year: number, month: number): (number | null)[] {
     .step-line.filled { background: var(--apex-accent); }
     .step-line.empty { background: rgba(255,255,255,.1); }
     .service-btn { border-radius: .75rem; border-width: 1px; border-style: solid; display: flex; align-items: flex-start; gap: .75rem; padding: 1rem; text-align: left; transition: all .2s; cursor: pointer; }
-    .service-btn.selected { border-color: var(--apex-accent); background: rgba(239,68,68,.1); }
+    .service-btn.selected { border-color: var(--apex-accent); background: rgb(var(--apex-accent-rgb) / .1); }
     .service-btn.unselected { border-color: rgba(255,255,255,.1); background: #111113; }
     .service-icon { width: 2rem; height: 2rem; border-radius: .5rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: .125rem; }
     .service-icon.selected { background: var(--apex-accent); }
     .service-icon.unselected { background: rgba(255,255,255,.1); }
     .cal-day { aspect-ratio: 1; border-radius: .5rem; font-size: .875rem; font-weight: 500; display: flex; align-items: center; justify-content: center; transition: all .15s; }
-    .cal-day:not([disabled]):hover { background: rgba(239,68,68,.2); }
+    .cal-day:not([disabled]):hover { background: rgb(var(--apex-accent-rgb) / .2); }
     .cal-day.selected-day { background: var(--apex-accent); color: #fff; }
     .cal-day.past-day { opacity: .3; cursor: not-allowed; }
     .cal-day.normal-day { color: #9ca3af; }

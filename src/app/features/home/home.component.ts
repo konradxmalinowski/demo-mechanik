@@ -73,7 +73,7 @@ const ADVANTAGES = [
       <!-- Hero -->
       <section class="relative min-h-[100vh] lg:min-h-[110vh] flex items-center pt-16 overflow-hidden" style="background-image:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1920&q=80');background-size:cover;background-position:center" aria-label="Sekcja główna">
         <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(10,10,11,0.88),rgba(17,17,19,0.85),rgba(10,10,11,0.88))"></div>
-        <div class="absolute inset-0 opacity-5" style="background-image:linear-gradient(#EF4444 1px,transparent 1px),linear-gradient(90deg,#EF4444 1px,transparent 1px);background-size:60px 60px"></div>
+        <div class="absolute inset-0 opacity-5" style="background-image:linear-gradient(var(--apex-accent) 1px,transparent 1px),linear-gradient(90deg,var(--apex-accent) 1px,transparent 1px);background-size:60px 60px"></div>
 
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div class="max-w-3xl">
