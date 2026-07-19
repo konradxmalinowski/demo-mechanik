@@ -16,6 +16,7 @@ Część portfolio [Konrad Malinowski](http://konrad.malinowski.ct8.pl) - pokazu
 - Diagnostyka - szczegółowe opisy usterek z kodem błędu
 - Następny przegląd automatycznie w kalendarzu klienta
 - Pełna responsywność - mobile-first
+- PWA - aplikację można zainstalować na telefonie, działa też offline
 
 ## Stack
 
