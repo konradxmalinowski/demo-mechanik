@@ -262,7 +262,7 @@ export class CustomerZoneComponent implements OnInit {
   ngOnInit(): void {
     this.seoService.setPage({
       title: 'Strefa Klienta',
-      description: 'Twój panel diagnostyczny APEX Mechanik — przegląd pojazdu, historia napraw, zalecenia serwisowe.',
+      description: 'Twój panel diagnostyczny APEX Mechanik - przegląd pojazdu, historia napraw, zalecenia serwisowe.',
     });
   }
 }

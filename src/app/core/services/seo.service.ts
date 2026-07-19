@@ -13,13 +13,13 @@ export interface SeoConfig {
 }
 
 const DEFAULT_OG_IMAGE = '/assets/og-mechanik.jpg';
-const SITE_NAME = 'APEX Mechanik — Serwis Samochodowy Premium';
+const SITE_NAME = 'APEX Mechanik - Serwis Samochodowy Premium';
 
 const AUTO_REPAIR_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'AutoRepair',
   name: 'APEX Mechanik',
-  description: 'Profesjonalny serwis samochodowy — diagnostyka komputerowa, naprawy mechaniczne, klimatyzacja, hamulce, zawieszenie, elektryka.',
+  description: 'Profesjonalny serwis samochodowy - diagnostyka komputerowa, naprawy mechaniczne, klimatyzacja, hamulce, zawieszenie, elektryka.',
   url: 'http://konrad.malinowski.ct8.pl/',
   telephone: '+48500100200',
   email: 'kontakt@apex-mechanik.pl',

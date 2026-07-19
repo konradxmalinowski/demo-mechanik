@@ -83,7 +83,7 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
     this.seoService.setPage({
       title: 'Kontakt',
-      description: 'Skontaktuj się z APEX Mechanik — tel. +48 500 100 200, ul. Mechaniczna 12, Warszawa. Pon–Pt 8–18, Sob 9–14.',
+      description: 'Skontaktuj się z APEX Mechanik - tel. +48 500 100 200, ul. Mechaniczna 12, Warszawa. Pon–Pt 8–18, Sob 9–14.',
     });
   }
 

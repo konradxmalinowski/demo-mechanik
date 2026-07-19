@@ -1,8 +1,8 @@
 # Demo: Warsztat Samochodowy
 
-Działające demo strony dla warsztatu samochodowego / mechanika — zbudowane w Angular + TypeScript z Angular Signals i Tailwind CSS.
+Działające demo strony dla warsztatu samochodowego / mechanika - zbudowane w Angular + TypeScript z Angular Signals i Tailwind CSS.
 
-Część portfolio [Konrad Malinowski](http://konrad.malinowski.ct8.pl) — pokazuje, jak może wyglądać strona Twojej firmy.
+Część portfolio [Konrad Malinowski](http://konrad.malinowski.ct8.pl) - pokazuje, jak może wyglądać strona Twojej firmy.
 
 **Live demo:** https://konradxmalinowski.github.io/demo-mechanik/
 
@@ -13,16 +13,16 @@ Część portfolio [Konrad Malinowski](http://konrad.malinowski.ct8.pl) — poka
 - Strefa klienta z pełną historią napraw pojazdu
 - Kalkulator kosztów serwisu krok po kroku
 - Wieloetapowa rezerwacja wizyty (wybór usługi → data → potwierdzenie)
-- Diagnostyka — szczegółowe opisy usterek z kodem błędu
+- Diagnostyka - szczegółowe opisy usterek z kodem błędu
 - Następny przegląd automatycznie w kalendarzu klienta
-- Pełna responsywność — mobile-first
+- Pełna responsywność - mobile-first
 
 ## Stack
 
 - **Angular 19** + TypeScript
-- **Angular Signals** — reaktywny stan bez BehaviorSubject
-- **Tailwind CSS** — stylowanie utility-first
-- **Angular CLI** — build i serwowanie
+- **Angular Signals** - reaktywny stan bez BehaviorSubject
+- **Tailwind CSS** - stylowanie utility-first
+- **Angular CLI** - build i serwowanie
 
 ## Uruchomienie lokalne
 

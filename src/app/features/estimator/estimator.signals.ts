@@ -19,7 +19,7 @@ export class EstimatorSignals {
     return this.categories.find((c) => c.id === catId)?.options ?? [];
   });
 
-  /** Estimated price — null if not fully selected */
+  /** Estimated price - null if not fully selected */
   readonly estimate = computed<number | null>(() => {
     const catId = this.selectedCategory();
     const optId = this.selectedOption();

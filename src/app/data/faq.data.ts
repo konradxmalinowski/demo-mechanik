@@ -13,7 +13,7 @@ export const FAQ_DATA: FaqItem[] = [
   {
     id: 2,
     question: 'Jakie marki pojazdów obsługujecie?',
-    answer: 'Obsługujemy wszystkie popularne marki — BMW, Audi, Mercedes, Volkswagen, Skoda, Toyota, Ford, Hyundai, Kia, Opel, Renault, Peugeot i wiele innych. Nasi mechanicy posiadają doświadczenie z samochodami zarówno europejskimi, jak i azjatyckimi.',
+    answer: 'Obsługujemy wszystkie popularne marki - BMW, Audi, Mercedes, Volkswagen, Skoda, Toyota, Ford, Hyundai, Kia, Opel, Renault, Peugeot i wiele innych. Nasi mechanicy posiadają doświadczenie z samochodami zarówno europejskimi, jak i azjatyckimi.',
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ export const FAQ_DATA: FaqItem[] = [
   {
     id: 6,
     question: 'Jaką gwarancję dajecie na wykonane usługi?',
-    answer: 'Na wszystkie wykonane naprawy udzielamy gwarancji — 12 miesięcy na robociznę i 24 miesiące na oryginalne części zamienne. Warunki gwarancji są jasno określone na fakturze lub protokole naprawy.',
+    answer: 'Na wszystkie wykonane naprawy udzielamy gwarancji - 12 miesięcy na robociznę i 24 miesiące na oryginalne części zamienne. Warunki gwarancji są jasno określone na fakturze lub protokole naprawy.',
   },
   {
     id: 7,
@@ -48,7 +48,7 @@ export const FAQ_DATA: FaqItem[] = [
   {
     id: 9,
     question: 'Czy można umówić się na wizytę w tym samym dniu?',
-    answer: 'W miarę dostępności terminów przyjmujemy samochody w trybie pilnym tego samego dnia. Zadzwoń do nas jak najwcześniej — postaramy się wygospodarować czas na pilne naprawy, szczególnie jeśli dotyczy to bezpieczeństwa jazdy.',
+    answer: 'W miarę dostępności terminów przyjmujemy samochody w trybie pilnym tego samego dnia. Zadzwoń do nas jak najwcześniej - postaramy się wygospodarować czas na pilne naprawy, szczególnie jeśli dotyczy to bezpieczeństwa jazdy.',
   },
   {
     id: 10,
@@ -58,7 +58,7 @@ export const FAQ_DATA: FaqItem[] = [
   {
     id: 11,
     question: 'Czy diagnoza komputerowa jest płatna?',
-    answer: 'Diagnostyka komputerowa kosztuje od 100 do 200 zł w zależności od zakresu. W przypadku, gdy zlecasz nam naprawę wykrytą podczas diagnozy, koszt diagnostyki wliczamy w koszt naprawy — diagnostyka jest wtedy bezpłatna.',
+    answer: 'Diagnostyka komputerowa kosztuje od 100 do 200 zł w zależności od zakresu. W przypadku, gdy zlecasz nam naprawę wykrytą podczas diagnozy, koszt diagnostyki wliczamy w koszt naprawy - diagnostyka jest wtedy bezpłatna.',
   },
   {
     id: 12,

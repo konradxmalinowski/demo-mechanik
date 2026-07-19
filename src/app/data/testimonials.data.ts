@@ -19,7 +19,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     name: 'Anna Wiśniewska',
     vehicle: 'Audi A4 (2021)',
     rating: 5,
-    comment: 'Byłam tu kilkakrotnie — zawsze terminowo, zawsze solidnie. Klimatyzacja działa jak nowa po serwisie. Bardzo dobry kontakt z klientem.',
+    comment: 'Byłam tu kilkakrotnie - zawsze terminowo, zawsze solidnie. Klimatyzacja działa jak nowa po serwisie. Bardzo dobry kontakt z klientem.',
   },
   {
     id: 3,
@@ -47,7 +47,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     name: 'Monika Kowalczyk',
     vehicle: 'Ford Focus (2019)',
     rating: 5,
-    comment: 'Profesjonalizm na każdym kroku — od przyjęcia auta, przez diagnostykę, aż po oddanie pojazdu. Cudowny personel.',
+    comment: 'Profesjonalizm na każdym kroku - od przyjęcia auta, przez diagnostykę, aż po oddanie pojazdu. Cudowny personel.',
   },
   {
     id: 7,
@@ -75,14 +75,14 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     name: 'Joanna Dąbrowska',
     vehicle: 'BMW X5 (2018)',
     rating: 5,
-    comment: 'Kompleksowa obsługa — od diagnostyki po naprawę. Mechanicy wyjaśnili mi co i dlaczego naprawiali. Bardzo dobra komunikacja.',
+    comment: 'Kompleksowa obsługa - od diagnostyki po naprawę. Mechanicy wyjaśnili mi co i dlaczego naprawiali. Bardzo dobra komunikacja.',
   },
   {
     id: 11,
     name: 'Rafał Kamiński',
     vehicle: 'Audi Q5 (2019)',
     rating: 4,
-    comment: 'Solidna robota przy zawieszeniu. Termin dotrzymany, cena zgodna z kosztorysem. Bez niespodzianek — to się ceni.',
+    comment: 'Solidna robota przy zawieszeniu. Termin dotrzymany, cena zgodna z kosztorysem. Bez niespodzianek - to się ceni.',
   },
   {
     id: 12,

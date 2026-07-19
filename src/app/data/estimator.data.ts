@@ -17,9 +17,9 @@ export const ESTIMATOR_CATEGORIES: EstimatorCategory[] = [
     label: 'Wymiana oleju',
     description: 'Wymiana oleju silnikowego z filtrem',
     options: [
-      { id: 'olej-osobowy-mineralny', label: 'Osobowy — olej mineralny', price: 180 },
-      { id: 'olej-osobowy-syntetyczny', label: 'Osobowy — olej syntetyczny', price: 280 },
-      { id: 'olej-suv-syntetyczny', label: 'SUV/4x4 — olej syntetyczny', price: 350 },
+      { id: 'olej-osobowy-mineralny', label: 'Osobowy - olej mineralny', price: 180 },
+      { id: 'olej-osobowy-syntetyczny', label: 'Osobowy - olej syntetyczny', price: 280 },
+      { id: 'olej-suv-syntetyczny', label: 'SUV/4x4 - olej syntetyczny', price: 350 },
       { id: 'olej-longlife', label: 'Longlife (BMW/Audi/VW)', price: 420 },
     ],
   },

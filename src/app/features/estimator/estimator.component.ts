@@ -114,7 +114,7 @@ export class EstimatorComponent implements OnInit {
   ngOnInit(): void {
     this.seoService.setPage({
       title: 'Kalkulator napraw',
-      description: 'Sprawdź orientacyjny koszt naprawy samochodu w APEX Mechanik — olej, hamulce, klimatyzacja, akumulator.',
+      description: 'Sprawdź orientacyjny koszt naprawy samochodu w APEX Mechanik - olej, hamulce, klimatyzacja, akumulator.',
     });
   }
 

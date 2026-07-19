@@ -38,7 +38,7 @@ const ADVANTAGES = [
   { title: 'Nowoczesny sprzęt', description: 'Diagnostyka najnowszej generacji dla wszystkich marek.', icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
   { title: 'Gwarancja usług', description: '12 mies. na robociznę, 24 mies. na części OEM.', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
   { title: 'Szybkie terminy', description: 'Rezerwacja online 24/7, pierwsza wizyta nawet tego samego dnia.', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' },
-  { title: 'Przejrzyste wyceny', description: 'Kosztorys przed naprawą — bez ukrytych opłat.', icon: 'M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z' },
+  { title: 'Przejrzyste wyceny', description: 'Kosztorys przed naprawą - bez ukrytych opłat.', icon: 'M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z' },
   { title: 'Strzeżony parking', description: 'Możliwość pozostawienia auta na noc pod opieką.', icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' },
 ];
 
@@ -89,7 +89,7 @@ const ADVANTAGES = [
             </h1>
 
             <p class="text-lg mb-10 leading-relaxed max-w-xl" style="color:#9ca3af">
-              Profesjonalny serwis samochodowy z 15-letnim doświadczeniem. Diagnostyka komputerowa, naprawy mechaniczne, klimatyzacja i elektryka — wszystko pod jednym dachem.
+              Profesjonalny serwis samochodowy z 15-letnim doświadczeniem. Diagnostyka komputerowa, naprawy mechaniczne, klimatyzacja i elektryka - wszystko pod jednym dachem.
             </p>
 
             <div class="flex flex-wrap gap-4">
@@ -121,7 +121,7 @@ const ADVANTAGES = [
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-12">
             <h2 class="text-4xl font-black mb-4">Nasze usługi</h2>
-            <p style="color:#9ca3af;max-width:36rem;margin:0 auto">Kompleksowy serwis dla wszystkich marek — z gwarancją jakości na każdą naprawę.</p>
+            <p style="color:#9ca3af;max-width:36rem;margin:0 auto">Kompleksowy serwis dla wszystkich marek - z gwarancją jakości na każdą naprawę.</p>
           </div>
 
           <!-- Skeleton loading state -->
@@ -168,7 +168,7 @@ const ADVANTAGES = [
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
             <h2 class="text-4xl font-black mb-4">Jak pracujemy</h2>
-            <p style="color:#9ca3af">Prosty, przejrzysty proces — od rezerwacji do odbioru.</p>
+            <p style="color:#9ca3af">Prosty, przejrzysty proces - od rezerwacji do odbioru.</p>
           </div>
 
           <div class="relative">
@@ -198,7 +198,7 @@ const ADVANTAGES = [
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-12">
             <h2 class="text-4xl font-black mb-4">Dlaczego my?</h2>
-            <p style="color:#9ca3af;max-width:36rem;margin:0 auto">Wybrało nas już ponad 3 200 kierowców — oto dlaczego nam ufają.</p>
+            <p style="color:#9ca3af;max-width:36rem;margin:0 auto">Wybrało nas już ponad 3 200 kierowców - oto dlaczego nam ufają.</p>
           </div>
 
           <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -318,7 +318,7 @@ const ADVANTAGES = [
       <section class="py-24 text-center" style="background:linear-gradient(135deg,#111113,#0A0A0B)" aria-label="Wezwanie do działania">
         <div class="max-w-2xl mx-auto px-4">
           <h2 class="text-4xl font-black mb-4">Gotowy na serwis premium?</h2>
-          <p class="mb-8" style="color:#9ca3af">Umów wizytę online w 2 minuty — bez kolejek, bez stresu.</p>
+          <p class="mb-8" style="color:#9ca3af">Umów wizytę online w 2 minuty - bez kolejek, bez stresu.</p>
           <a routerLink="/rezerwacja" class="inline-flex items-center gap-3 px-10 py-4 font-bold text-lg rounded-xl transition-all hover:scale-105" style="background:var(--apex-accent);color:#fff">
             Umów wizytę teraz
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -379,7 +379,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.seoService.setPage({
       title: 'Serwis Samochodowy Premium',
-      description: 'APEX Mechanik — profesjonalny serwis samochodowy w Warszawie. Diagnostyka, naprawy, klimatyzacja, hamulce. Umów wizytę online.',
+      description: 'APEX Mechanik - profesjonalny serwis samochodowy w Warszawie. Diagnostyka, naprawy, klimatyzacja, hamulce. Umów wizytę online.',
     });
   }
 

@@ -2,7 +2,7 @@
 
 > A demo website for a car workshop / mechanic, built by freelance web developer
 > Konrad Malinowski as part of his portfolio. Angular 19 with Signals and Tailwind
-> CSS — it shows prospective clients what their own workshop website could look like.
+> CSS - it shows prospective clients what their own workshop website could look like.
 
 The site content is in Polish. All data is mock data; the client zone, repair
 history, and cost calculator are simulated client-side with no backend.
@@ -25,5 +25,5 @@ history, and cost calculator are simulated client-side with no backend.
 ## Links
 
 - [Source code](https://github.com/konradxmalinowski/demo-mechanik): GitHub repository
-- [Developer portfolio](http://konrad.malinowski.ct8.pl): Konrad Malinowski — freelance web developer
+- [Developer portfolio](http://konrad.malinowski.ct8.pl): Konrad Malinowski - freelance web developer
 - [Contact](mailto:malinowski.konrad45@gmail.com): get a similar website for your business

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* JetBrains Mono — loaded from Google Fonts CDN for demo purposes */
+/* JetBrains Mono - loaded from Google Fonts CDN for demo purposes */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 :root {
@@ -14,7 +14,7 @@
   --color-text: var(--color-noir);
   --apex-accent: #EF4444;
   /* RGB channels of --apex-accent for translucent derivatives:
-     rgb(var(--apex-accent-rgb) / .1) — keep in sync with --apex-accent */
+     rgb(var(--apex-accent-rgb) / .1) - keep in sync with --apex-accent */
   --apex-accent-rgb: 239 68 68;
 }
 

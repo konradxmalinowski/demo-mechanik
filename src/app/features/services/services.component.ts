@@ -60,7 +60,7 @@ export class ServicesComponent implements OnInit {
   ngOnInit(): void {
     this.seoService.setPage({
       title: 'Usługi serwisowe',
-      description: 'Pełna oferta usług serwisowych APEX Mechanik — diagnostyka, oleje, klimatyzacja, hamulce, zawieszenie, elektryka.',
+      description: 'Pełna oferta usług serwisowych APEX Mechanik - diagnostyka, oleje, klimatyzacja, hamulce, zawieszenie, elektryka.',
     });
   }
 }

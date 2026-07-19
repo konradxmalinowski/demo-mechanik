@@ -329,7 +329,7 @@ export class BookingComponent implements OnInit {
   ngOnInit(): void {
     this.seoService.setPage({
       title: 'Rezerwacja wizyty',
-      description: 'Zarezerwuj wizytę serwisową w APEX Mechanik — 6-krokowy formularz.',
+      description: 'Zarezerwuj wizytę serwisową w APEX Mechanik - 6-krokowy formularz.',
     });
   }
 

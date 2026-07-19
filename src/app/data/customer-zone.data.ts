@@ -52,7 +52,7 @@ export const VEHICLE_OVERVIEW: VehicleOverview = {
 
 export const LAST_VISITS: LastVisit[] = [
   { id: 1, date: '2026-04-15', service: 'Wymiana oleju + filtry', status: 'Zakończona', cost: 420 },
-  { id: 2, date: '2026-01-10', service: 'Naprawa zawieszenia — wahacze', status: 'Zakończona', cost: 1_280 },
+  { id: 2, date: '2026-01-10', service: 'Naprawa zawieszenia - wahacze', status: 'Zakończona', cost: 1_280 },
   { id: 3, date: '2025-10-22', service: 'Serwis klimatyzacji', status: 'Zakończona', cost: 320 },
   { id: 4, date: '2025-07-08', service: 'Wymiana klocków hamulcowych (przód)', status: 'Zakończona', cost: 550 },
   { id: 5, date: '2025-03-15', service: 'Diagnostyka + naprawa elektryki', status: 'Zakończona', cost: 890 },
@@ -94,7 +94,7 @@ export const REPAIR_HISTORY: RepairHistoryItem[] = [
   {
     id: 5,
     date: '2025-03-15',
-    scope: 'Diagnostyka OBD — kod P0170 (mieszanka paliwowa), wymiana czujnika MAF, kasowanie błędów',
+    scope: 'Diagnostyka OBD - kod P0170 (mieszanka paliwowa), wymiana czujnika MAF, kasowanie błędów',
     mechanic: 'Piotr Kamiński',
     cost: 890,
     status: 'completed',
@@ -110,7 +110,7 @@ export const REPAIR_HISTORY: RepairHistoryItem[] = [
   {
     id: 7,
     date: '2024-06-05',
-    scope: 'Serwis DSG — wymiana oleju i filtra skrzyni automatycznej',
+    scope: 'Serwis DSG - wymiana oleju i filtra skrzyni automatycznej',
     mechanic: 'Marek Wiśniewski',
     cost: 750,
     status: 'completed',
@@ -121,14 +121,14 @@ export const SERVICE_RECOMMENDATIONS: ServiceRecommendation[] = [
   {
     id: 1,
     title: 'Wymiana tarcz hamulcowych (tył)',
-    description: 'Grubość tarcz poniżej minimalnej wartości — 7.8 mm (minimum 8 mm). Wymiana wymagana ze względów bezpieczeństwa.',
+    description: 'Grubość tarcz poniżej minimalnej wartości - 7.8 mm (minimum 8 mm). Wymiana wymagana ze względów bezpieczeństwa.',
     urgency: 'pilne',
     dueDate: '2026-07-01',
   },
   {
     id: 2,
     title: 'Wymiana płynu hamulcowego',
-    description: 'Płyn hamulcowy powinien być wymieniany co 2 lata. Ostatnia wymiana — 2 lata temu. Zalecamy wymianę podczas najbliższej wizyty.',
+    description: 'Płyn hamulcowy powinien być wymieniany co 2 lata. Ostatnia wymiana - 2 lata temu. Zalecamy wymianę podczas najbliższej wizyty.',
     urgency: 'zalecane',
     dueDate: '2026-09-01',
   },
@@ -150,7 +150,7 @@ export const SERVICE_RECOMMENDATIONS: ServiceRecommendation[] = [
   {
     id: 5,
     title: 'Sprawdzenie opon zimowych',
-    description: 'Sezon zimowy zbliża się — zalecamy sprawdzenie głębokości bieżnika i ciśnienia opon zimowych przed montażem.',
+    description: 'Sezon zimowy zbliża się - zalecamy sprawdzenie głębokości bieżnika i ciśnienia opon zimowych przed montażem.',
     urgency: 'informacyjne',
     dueDate: '2026-11-01',
   },

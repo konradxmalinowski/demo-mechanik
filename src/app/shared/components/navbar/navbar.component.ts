@@ -82,7 +82,7 @@ const NAV_LINKS: NavLink[] = [
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
           <!-- Logo -->
-          <a routerLink="/" class="flex items-center gap-2" aria-label="APEX Mechanik — strona główna">
+          <a routerLink="/" class="flex items-center gap-2" aria-label="APEX Mechanik - strona główna">
             <span class="text-red-500 font-black text-xl tracking-tight uppercase">APEX</span>
             <span class="text-white font-light text-xl tracking-widest uppercase">Mechanik</span>
           </a>
