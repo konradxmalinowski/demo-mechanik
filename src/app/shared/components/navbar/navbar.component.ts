@@ -64,8 +64,13 @@ const NAV_LINKS: NavLink[] = [
       transition: all 300ms;
     }
     .nav-header.scrolled {
-      background-color: #0A0A0B;
+      background-color: #ffffff;
       backdrop-filter: blur(12px);
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,.1);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
+    :host-context(.dark) .nav-header.scrolled {
+      background-color: #0A0A0B;
       box-shadow: 0 10px 15px -3px rgba(0,0,0,.3);
       border-bottom: 1px solid rgba(255,255,255,.1);
     }
@@ -84,7 +89,7 @@ const NAV_LINKS: NavLink[] = [
           <!-- Logo -->
           <a routerLink="/" class="flex items-center gap-2" aria-label="APEX Mechanik - strona główna">
             <span class="text-red-500 font-black text-xl tracking-tight uppercase">APEX</span>
-            <span class="text-white font-light text-xl tracking-widest uppercase">Mechanik</span>
+            <span class="text-mechanik-noir dark:text-white font-light text-xl tracking-widest uppercase">Mechanik</span>
           </a>
 
           <!-- Desktop nav -->
@@ -94,7 +99,7 @@ const NAV_LINKS: NavLink[] = [
                 [routerLink]="link.route"
                 routerLinkActive="text-red-400 border-b border-red-400"
                 [routerLinkActiveOptions]="{ exact: link.route === '/' }"
-                class="px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200 rounded-sm"
+                class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-mechanik-noir dark:hover:text-white transition-colors duration-200 rounded-sm"
               >{{ link.label }}</a>
             }
           </nav>
@@ -105,7 +110,7 @@ const NAV_LINKS: NavLink[] = [
             <button
               (click)="toggleDarkMode()"
               [attr.aria-label]="darkMode() ? 'Przełącz na jasny motyw' : 'Przełącz na ciemny motyw'"
-              class="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+              class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-mechanik-noir dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
             >
               @if (darkMode()) {
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -129,7 +134,7 @@ const NAV_LINKS: NavLink[] = [
             <!-- Mobile hamburger -->
             <button
               (click)="toggleMenu()"
-              class="lg:hidden p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+              class="lg:hidden p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-mechanik-noir dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
               [attr.aria-expanded]="menuOpen()"
               aria-controls="mobile-menu"
               aria-label="Otwórz menu nawigacji"
@@ -164,14 +169,14 @@ const NAV_LINKS: NavLink[] = [
       <nav
         id="mobile-menu"
         [@drawerSlide]
-        class="lg:hidden fixed top-0 right-0 h-full w-80 bg-gray-950 z-50 flex flex-col shadow-2xl border-l border-white/10"
+        class="lg:hidden fixed top-0 right-0 h-full w-80 bg-white dark:bg-gray-950 z-50 flex flex-col shadow-2xl border-l border-black/10 dark:border-white/10"
         aria-label="Menu mobilne"
       >
-        <div class="flex items-center justify-between px-6 h-16 border-b border-white/10">
-          <span class="text-white font-semibold">Menu</span>
+        <div class="flex items-center justify-between px-6 h-16 border-b border-black/10 dark:border-white/10">
+          <span class="text-mechanik-noir dark:text-white font-semibold">Menu</span>
           <button
             (click)="closeMenu()"
-            class="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+            class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-mechanik-noir dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
             aria-label="Zamknij menu"
           >
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -187,12 +192,12 @@ const NAV_LINKS: NavLink[] = [
               routerLinkActive="text-red-400 bg-red-500/10"
               [routerLinkActiveOptions]="{ exact: link.route === '/' }"
               (click)="closeMenu()"
-              class="flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors mb-1 text-base font-medium"
+              class="flex items-center px-4 py-3 text-gray-600 dark:text-gray-300 hover:text-mechanik-noir dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors mb-1 text-base font-medium"
             >{{ link.label }}</a>
           }
         </div>
 
-        <div class="px-4 py-6 border-t border-white/10">
+        <div class="px-4 py-6 border-t border-black/10 dark:border-white/10">
           <a
             routerLink="/rezerwacja"
             (click)="closeMenu()"

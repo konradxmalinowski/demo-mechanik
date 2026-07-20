@@ -47,7 +47,7 @@ import { BRANDS_DATA } from '../../../data/brands.data';
   `],
   template: `
     <section
-      class="py-12 bg-[#111113] border-y border-white/5"
+      class="py-12 bg-gray-50 dark:bg-mechanik-surface border-y border-black/5 dark:border-white/5"
       aria-label="Obsługiwane marki samochodów"
     >
       <p class="text-center text-xs text-gray-500 uppercase tracking-widest mb-8">
@@ -56,8 +56,8 @@ import { BRANDS_DATA } from '../../../data/brands.data';
 
       <div class="relative overflow-hidden">
         <!-- Fade edges -->
-        <div class="pointer-events-none absolute inset-y-0 left-0 w-16 z-10 bg-gradient-to-r from-[#111113] to-transparent"></div>
-        <div class="pointer-events-none absolute inset-y-0 right-0 w-16 z-10 bg-gradient-to-l from-[#111113] to-transparent"></div>
+        <div class="pointer-events-none absolute inset-y-0 left-0 w-16 z-10 bg-gradient-to-r from-gray-50 dark:from-mechanik-surface to-transparent"></div>
+        <div class="pointer-events-none absolute inset-y-0 right-0 w-16 z-10 bg-gradient-to-l from-gray-50 dark:from-mechanik-surface to-transparent"></div>
 
         <div class="marquee-track" role="list">
           <!-- Doubled list for seamless loop -->
@@ -67,7 +67,7 @@ import { BRANDS_DATA } from '../../../data/brands.data';
               role="listitem"
               [attr.aria-label]="brand.name"
             >
-              <span class="text-2xl font-black text-white tracking-tight uppercase select-none px-4 py-2">
+              <span class="text-2xl font-black text-mechanik-noir dark:text-white tracking-tight uppercase select-none px-4 py-2">
                 {{ brand.name }}
               </span>
             </div>

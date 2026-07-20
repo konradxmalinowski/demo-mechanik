@@ -11,7 +11,7 @@ const PORTFOLIO_URL = 'http://konrad.malinowski.ct8.pl';
   imports: [CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <footer class="bg-[var(--color-noir)] text-[var(--color-light)] py-6 px-4 mt-auto">
+    <footer class="bg-[var(--color-bg)] text-[var(--color-text)] py-6 px-4 mt-auto">
       <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <p class="text-sm text-center sm:text-left">
           {{ footerText }} &copy; {{ year }}
@@ -21,7 +21,7 @@ const PORTFOLIO_URL = 'http://konrad.malinowski.ct8.pl';
             [href]="githubUrl"
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:text-[var(--color-yellow)] transition-colors underline"
+            class="hover:text-amber-700 dark:hover:text-mechanik-yellow transition-colors underline"
           >
             GitHub
           </a>
@@ -29,7 +29,7 @@ const PORTFOLIO_URL = 'http://konrad.malinowski.ct8.pl';
             [href]="portfolioUrl"
             target="_blank"
             rel="noopener noreferrer"
-            class="hover:text-[var(--color-yellow)] transition-colors underline"
+            class="hover:text-amber-700 dark:hover:text-mechanik-yellow transition-colors underline"
           >
             Portfolio
           </a>
