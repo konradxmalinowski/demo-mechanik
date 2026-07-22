@@ -1,13 +1,13 @@
 import { Component, ChangeDetectionStrategy, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterLink } from '@angular/router';
-import { SeoService } from '../../core/services/seo.service';
+import { SeoService, SITE_URL } from '../../core/services/seo.service';
 import { DemoModeService } from '../../core/services/demo-mode.service';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="min-h-screen bg-white text-mechanik-noir dark:bg-mechanik-noir dark:text-white pt-24 pb-16">
@@ -85,6 +85,7 @@ export class ContactComponent implements OnInit {
       title: 'Kontakt',
       description: 'Skontaktuj się z APEX Mechanik - tel. +48 500 100 200, ul. Mechaniczna 12, Warszawa. Pon–Pt 8–18, Sob 9–14.',
     });
+    this.seoService.setCanonical(`${SITE_URL}/kontakt`);
   }
 
   protected onSubmit(event: Event): void {

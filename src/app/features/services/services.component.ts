@@ -1,13 +1,13 @@
 import { Component, ChangeDetectionStrategy, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterLink } from '@angular/router';
-import { SeoService } from '../../core/services/seo.service';
+import { SeoService, SITE_URL } from '../../core/services/seo.service';
 import { SERVICES_DATA } from '../../data/services.data';
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="min-h-screen bg-white text-mechanik-noir dark:bg-mechanik-noir dark:text-white pt-24 pb-16">
@@ -62,5 +62,6 @@ export class ServicesComponent implements OnInit {
       title: 'Usługi serwisowe',
       description: 'Pełna oferta usług serwisowych APEX Mechanik - diagnostyka, oleje, klimatyzacja, hamulce, zawieszenie, elektryka.',
     });
+    this.seoService.setCanonical(`${SITE_URL}/uslugi`);
   }
 }

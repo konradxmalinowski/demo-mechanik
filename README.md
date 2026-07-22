@@ -20,7 +20,7 @@ Część portfolio [Konrad Malinowski](http://konrad.malinowski.ct8.pl) - pokazu
 
 ## Stack
 
-- **Angular 19** + TypeScript
+- **Angular 21** + TypeScript
 - **Angular Signals** - reaktywny stan bez BehaviorSubject
 - **Tailwind CSS** - stylowanie utility-first
 - **Angular CLI** - build i serwowanie

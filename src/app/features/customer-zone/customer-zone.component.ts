@@ -8,7 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { animate, style, transition, trigger, query, stagger } from '@angular/animations';
-import { SeoService } from '../../core/services/seo.service';
+import { SeoService, SITE_URL } from '../../core/services/seo.service';
 import {
   VEHICLE_OVERVIEW,
   LAST_VISITS,
@@ -270,5 +270,6 @@ export class CustomerZoneComponent implements OnInit {
       title: 'Strefa Klienta',
       description: 'Twój panel diagnostyczny APEX Mechanik - przegląd pojazdu, historia napraw, zalecenia serwisowe.',
     });
+    this.seoService.setCanonical(`${SITE_URL}/strefa-klienta`);
   }
 }

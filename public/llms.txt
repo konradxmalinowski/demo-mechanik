@@ -1,7 +1,7 @@
 # Demo: Car Workshop (Warsztat Samochodowy)
 
 > A demo website for a car workshop / mechanic, built by freelance web developer
-> Konrad Malinowski as part of his portfolio. Angular 19 with Signals and Tailwind
+> Konrad Malinowski as part of his portfolio. Angular 21 with Signals and Tailwind
 > CSS - it shows prospective clients what their own workshop website could look like.
 
 The site content is in Polish. All data is mock data; the client zone, repair
@@ -18,7 +18,7 @@ history, and cost calculator are simulated client-side with no backend.
 
 ## Tech
 
-- Angular 19, TypeScript, Angular Signals
+- Angular 21, TypeScript, Angular Signals
 - Tailwind CSS (utility-first styling)
 - Angular CLI build tooling
 

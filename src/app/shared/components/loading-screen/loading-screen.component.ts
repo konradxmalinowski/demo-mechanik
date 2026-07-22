@@ -5,14 +5,23 @@ import {
   OnInit,
   inject,
   PLATFORM_ID,
+  DestroyRef,
 } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import {
+  Router,
+  NavigationStart,
+  NavigationEnd,
+  NavigationCancel,
+  NavigationError,
+} from '@angular/router';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-loading-screen',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('screenLeave', [
@@ -57,13 +66,35 @@ import { animate, style, transition, trigger } from '@angular/animations';
 })
 export class LoadingScreenComponent implements OnInit {
   private readonly platformId = inject(PLATFORM_ID);
-  protected readonly visible = signal(true);
+  private readonly router = inject(Router);
+  private readonly destroyRef = inject(DestroyRef);
+
+  // Content is already prerendered/hydrated on first paint, so the overlay
+  // starts hidden - it is only shown for later client-side route transitions
+  // whose lazy chunk hasn't loaded yet, never for the initial (already-painted) load.
+  protected readonly visible = signal(false);
 
   ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      setTimeout(() => this.visible.set(false), 200);
-    } else {
-      this.visible.set(false);
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
     }
+
+    let isInitialNavigation = true;
+
+    this.router.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        if (isInitialNavigation) {
+          isInitialNavigation = false;
+          return;
+        }
+        this.visible.set(true);
+      } else if (
+        event instanceof NavigationEnd ||
+        event instanceof NavigationCancel ||
+        event instanceof NavigationError
+      ) {
+        this.visible.set(false);
+      }
+    });
   }
 }

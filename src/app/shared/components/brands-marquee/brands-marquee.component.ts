@@ -1,15 +1,14 @@
 import {
   Component,
   ChangeDetectionStrategy,
-  signal,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { BRANDS_DATA } from '../../../data/brands.data';
 
 @Component({
   selector: 'app-brands-marquee',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [`
     :host { display: block; overflow: hidden; }

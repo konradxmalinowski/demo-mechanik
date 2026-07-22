@@ -42,7 +42,7 @@ export class BookingSignals {
   readonly contactForm: FormGroup = this.fb.group({
     imie: ['', [Validators.required]],
     nazwisko: ['', [Validators.required]],
-    telefon: ['', [Validators.required, Validators.pattern(/^\+?[0-9\s\-]{9,15}$/)]],
+    telefon: ['', [Validators.required, Validators.pattern(/^\+?[0-9\s-]{9,15}$/)]],
     email: ['', [Validators.required, Validators.email]],
   });
 

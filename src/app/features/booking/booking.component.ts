@@ -6,11 +6,11 @@ import {
   computed,
   signal,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterLink } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { animate, style, transition, trigger } from '@angular/animations';
-import { SeoService } from '../../core/services/seo.service';
+import { SeoService, SITE_URL } from '../../core/services/seo.service';
 import { DemoModeService } from '../../core/services/demo-mode.service';
 import { BookingSignals } from './booking.signals';
 import { SERVICES_DATA, ServiceItem } from '../../data/services.data';
@@ -33,7 +33,7 @@ function getCalendarDays(year: number, month: number): (number | null)[] {
 @Component({
   selector: 'app-booking',
   standalone: true,
-  imports: [CommonModule, RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [BookingSignals],
   animations: [
@@ -106,7 +106,7 @@ function getCalendarDays(year: number, month: number): (number | null)[] {
               <div>
                 <label for="marka" class="block text-sm text-gray-600 dark:text-gray-400 mb-1">Marka pojazdu *</label>
                 <select id="marka" formControlName="marka"
-                  class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white">
+                  class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#EF4444] transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white">
                   <option value="" disabled>Wybierz markę</option>
                   @for (brand of carBrands; track brand) {
                     <option [value]="brand">{{ brand }}</option>
@@ -116,13 +116,13 @@ function getCalendarDays(year: number, month: number): (number | null)[] {
               <div>
                 <label for="model" class="block text-sm text-gray-600 dark:text-gray-400 mb-1">Model *</label>
                 <input id="model" type="text" formControlName="model" placeholder="np. 320d, A4, Golf"
-                  class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
+                  class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#EF4444] transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
               </div>
               <div class="grid grid-cols-2 gap-4">
                 <div>
                   <label for="rocznik" class="block text-sm text-gray-600 dark:text-gray-400 mb-1">Rocznik *</label>
                   <select id="rocznik" formControlName="rocznik"
-                    class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white">
+                    class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#EF4444] transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white">
                     <option value="" disabled>Rok</option>
                     @for (year of years; track year) {
                       <option [value]="year">{{ year }}</option>
@@ -132,7 +132,7 @@ function getCalendarDays(year: number, month: number): (number | null)[] {
                 <div>
                   <label for="przebieg" class="block text-sm text-gray-600 dark:text-gray-400 mb-1">Przebieg (km) *</label>
                   <input id="przebieg" type="number" formControlName="przebieg" placeholder="np. 65000"
-                    class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
+                    class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#EF4444] transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
                 </div>
               </div>
             </form>
@@ -233,23 +233,23 @@ function getCalendarDays(year: number, month: number): (number | null)[] {
                 <div>
                   <label for="imie" class="block text-sm text-gray-600 dark:text-gray-400 mb-1">Imię *</label>
                   <input id="imie" type="text" formControlName="imie" placeholder="Jan"
-                    class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
+                    class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#EF4444] transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
                 </div>
                 <div>
                   <label for="nazwisko" class="block text-sm text-gray-600 dark:text-gray-400 mb-1">Nazwisko *</label>
                   <input id="nazwisko" type="text" formControlName="nazwisko" placeholder="Kowalski"
-                    class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
+                    class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#EF4444] transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
                 </div>
               </div>
               <div>
                 <label for="telefon" class="block text-sm text-gray-600 dark:text-gray-400 mb-1">Numer telefonu *</label>
                 <input id="telefon" type="tel" formControlName="telefon" placeholder="+48 500 100 200"
-                  class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
+                  class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#EF4444] transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
               </div>
               <div>
                 <label for="email-contact" class="block text-sm text-gray-600 dark:text-gray-400 mb-1">Adres e-mail *</label>
                 <input id="email-contact" type="email" formControlName="email" placeholder="jan@example.com"
-                  class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
+                  class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#EF4444] transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
               </div>
             </form>
           </div>
@@ -326,6 +326,7 @@ export class BookingComponent implements OnInit {
       title: 'Rezerwacja wizyty',
       description: 'Zarezerwuj wizytę serwisową w APEX Mechanik - 6-krokowy formularz.',
     });
+    this.seoService.setCanonical(`${SITE_URL}/rezerwacja`);
   }
 
   protected prevMonth(): void {

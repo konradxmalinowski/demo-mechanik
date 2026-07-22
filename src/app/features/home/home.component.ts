@@ -9,10 +9,10 @@ import {
   ElementRef,
   afterNextRender,
 } from '@angular/core';
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { animate, style, transition, trigger, state } from '@angular/animations';
-import { SeoService } from '../../core/services/seo.service';
+import { SeoService, SITE_URL } from '../../core/services/seo.service';
 import { BrandsMarqueeComponent } from '../../shared/components/brands-marquee/brands-marquee.component';
 import { SERVICES_DATA } from '../../data/services.data';
 import { TESTIMONIALS_DATA } from '../../data/testimonials.data';
@@ -45,7 +45,7 @@ const ADVANTAGES = [
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink, BrandsMarqueeComponent],
+  imports: [RouterLink, BrandsMarqueeComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('fadeUp', [
@@ -382,6 +382,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       title: 'Serwis Samochodowy Premium',
       description: 'APEX Mechanik - profesjonalny serwis samochodowy w Warszawie. Diagnostyka, naprawy, klimatyzacja, hamulce. Umów wizytę online.',
     });
+    this.seoService.setCanonical(`${SITE_URL}/`);
   }
 
   ngOnDestroy(): void {

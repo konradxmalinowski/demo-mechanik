@@ -1,7 +1,7 @@
 {
-  "name": "AutoMistrzowie",
-  "short_name": "AutoMistrz",
-  "description": "Serwis samochodowy w Krakowie. Naprawy, diagnostyka, rezerwacja terminu online.",
+  "name": "APEX Mechanik",
+  "short_name": "APEX Mechanik",
+  "description": "Serwis samochodowy w Warszawie. Naprawy, diagnostyka, rezerwacja terminu online.",
   "lang": "pl",
   "start_url": "./",
   "scope": "./",

@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { SeoService } from '../../core/services/seo.service';
+import { SeoService, SITE_URL } from '../../core/services/seo.service';
 import { DemoModeService } from '../../core/services/demo-mode.service';
 import { EstimatorSignals } from './estimator.signals';
 
@@ -120,6 +120,7 @@ export class EstimatorComponent implements OnInit {
       title: 'Kalkulator napraw',
       description: 'Sprawdź orientacyjny koszt naprawy samochodu w APEX Mechanik - olej, hamulce, klimatyzacja, akumulator.',
     });
+    this.seoService.setCanonical(`${SITE_URL}/kalkulator`);
   }
 
   protected onUmowWizyteClick(): void {

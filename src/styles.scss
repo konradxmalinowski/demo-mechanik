@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* JetBrains Mono - loaded from Google Fonts CDN for demo purposes */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+/* JetBrains Mono - loaded via preconnected <link> tags in index.html (avoids render-blocking @import) */
 
 :root {
   --color-noir: #0A0A0B;

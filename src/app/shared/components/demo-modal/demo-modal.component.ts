@@ -1,9 +1,10 @@
 import {
   Component,
   ChangeDetectionStrategy,
+  HostListener,
   inject,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { animate, style, transition, trigger } from '@angular/animations';
 import { DemoModeService } from '../../../core/services/demo-mode.service';
 
@@ -13,7 +14,7 @@ const DEMO_TEXT =
 @Component({
   selector: 'app-demo-modal',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('fadeIn', [
@@ -37,11 +38,19 @@ const DEMO_TEXT =
   ],
   template: `
     @if (demoModeService.modalOpen()) {
+      <!--
+        Backdrop click-to-close and the inner stopPropagation guard are mouse-only
+        conveniences; full keyboard equivalents already exist via the Escape key
+        (see @HostListener below) and the visible "Zamknij" button, so the
+        a11y click/keyboard-pairing rules don't apply to these two divs.
+      -->
+      <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
       <div
         class="fixed inset-0 bg-black/60 z-40 flex items-center justify-center p-4"
         [@backdrop]
         (click)="demoModeService.close()"
       >
+        <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events -->
         <div
           role="dialog"
           aria-modal="true"
@@ -73,4 +82,9 @@ const DEMO_TEXT =
 export class DemoModalComponent {
   protected readonly demoModeService = inject(DemoModeService);
   protected readonly demoText = DEMO_TEXT;
+
+  @HostListener('document:keydown.escape')
+  protected onEscape(): void {
+    this.demoModeService.close();
+  }
 }

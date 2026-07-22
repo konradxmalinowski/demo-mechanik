@@ -1,6 +1,5 @@
-import { Injectable, inject, PLATFORM_ID } from '@angular/core';
+import { Injectable, inject, DOCUMENT } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 export interface SeoConfig {
   title: string;
@@ -12,8 +11,9 @@ export interface SeoConfig {
   jsonLd?: Record<string, unknown>;
 }
 
-const DEFAULT_OG_IMAGE = '/assets/og-mechanik.jpg';
-const SITE_NAME = 'APEX Mechanik - Serwis Samochodowy Premium';
+export const SITE_URL = 'https://konradxmalinowski.github.io/demo-mechanik';
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
+const SITE_NAME = 'APEX Mechanik';
 
 const AUTO_REPAIR_SCHEMA = {
   '@context': 'https://schema.org',
@@ -74,7 +74,6 @@ export class SeoService {
   private readonly meta = inject(Meta);
   private readonly title = inject(Title);
   private readonly doc = inject(DOCUMENT);
-  private readonly platformId = inject(PLATFORM_ID);
 
   setPage(config: SeoConfig): void {
     const fullTitle = `${config.title} | ${SITE_NAME}`;
@@ -109,7 +108,6 @@ export class SeoService {
   }
 
   setCanonical(url: string): void {
-    if (!isPlatformBrowser(this.platformId)) return;
     const existing = this.doc.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (existing) {
       existing.href = url;
