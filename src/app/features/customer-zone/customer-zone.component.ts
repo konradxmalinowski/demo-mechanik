@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { animate, style, transition, trigger, query, stagger } from '@angular/animations';
+import { animate, style, transition, trigger } from '@angular/animations';
 import { SeoService, SITE_URL } from '../../core/services/seo.service';
 import {
   VEHICLE_OVERVIEW,
@@ -24,14 +24,6 @@ import {
   imports: [CommonModule, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
-    trigger('timelineItems', [
-      transition(':enter', [
-        query('.timeline-item', [
-          style({ opacity: 0, transform: 'translateX(-20px)' }),
-          stagger(80, [animate('350ms ease-out', style({ opacity: 1, transform: 'none' }))]),
-        ], { optional: true }),
-      ]),
-    ]),
     trigger('slideIn', [
       transition(':enter', [
         style({ opacity: 0, transform: 'translateY(16px)' }),
@@ -119,20 +111,25 @@ import {
         <div class="flex items-center gap-2 mb-6 overflow-x-auto" role="tablist" aria-label="Sekcje strefy klienta">
           @for (tab of tabs; track tab.id) {
             <button type="button"
+              [id]="'tab-' + tab.id"
               class="tab-btn flex-shrink-0"
               [class.active]="activeTab() === tab.id"
               [class.inactive]="activeTab() !== tab.id"
               (click)="activeTab.set(tab.id)"
               role="tab"
               [attr.aria-selected]="activeTab() === tab.id"
+              [attr.tabindex]="activeTab() === tab.id ? 0 : -1"
               [attr.aria-controls]="'panel-' + tab.id">{{ tab.label }}</button>
           }
         </div>
 
-        <!-- Tab content -->
+        <!-- Tab content. All four panels are always rendered (and present in the
+             server-rendered/prerendered HTML) - only the active one is visually
+             shown via [hidden]. This keeps the full repair history, recommendations
+             and documents content readable by AI crawlers and non-JS agents,
+             instead of only whichever tab happens to be selected by default. -->
 
-        @if (activeTab() === 'visits') {
-          <div [@slideIn] role="tabpanel" id="panel-visits">
+        <div role="tabpanel" id="panel-visits" aria-labelledby="tab-visits" [hidden]="activeTab() !== 'visits'">
             <h2 class="mono text-lg font-bold mb-4">// OSTATNIE WIZYTY</h2>
             @if (lastVisits.length === 0) {
               <div class="text-center py-16 rounded-xl bg-gray-50 dark:bg-mechanik-surface border border-gray-200 dark:border-white/5">
@@ -167,11 +164,9 @@ import {
                 </table>
               </div>
             }
-          </div>
-        }
+        </div>
 
-        @if (activeTab() === 'history') {
-          <div [@timelineItems] role="tabpanel" id="panel-history">
+        <div role="tabpanel" id="panel-history" aria-labelledby="tab-history" [hidden]="activeTab() !== 'history'">
             <h2 class="mono text-lg font-bold mb-6">// HISTORIA NAPRAW</h2>
             @if (repairHistory.length === 0) {
               <div class="text-center py-16 rounded-xl bg-gray-50 dark:bg-mechanik-surface border border-gray-200 dark:border-white/5">
@@ -198,11 +193,9 @@ import {
                 }
               </div>
             }
-          </div>
-        }
+        </div>
 
-        @if (activeTab() === 'recommendations') {
-          <div [@slideIn] role="tabpanel" id="panel-recommendations">
+        <div role="tabpanel" id="panel-recommendations" aria-labelledby="tab-recommendations" [hidden]="activeTab() !== 'recommendations'">
             <h2 class="mono text-lg font-bold mb-6">// ZALECENIA SERWISOWE</h2>
             <div class="space-y-4">
               @for (rec of recommendations; track rec.id) {
@@ -228,11 +221,9 @@ import {
                 </div>
               }
             </div>
-          </div>
-        }
+        </div>
 
-        @if (activeTab() === 'documents') {
-          <div [@slideIn] role="tabpanel" id="panel-documents">
+        <div role="tabpanel" id="panel-documents" aria-labelledby="tab-documents" [hidden]="activeTab() !== 'documents'">
             <h2 class="mono text-lg font-bold mb-6">// DOKUMENTACJA</h2>
             <div class="text-center py-16 rounded-xl bg-gray-50 dark:bg-mechanik-surface border border-gray-200 dark:border-white/5">
               <svg class="w-12 h-12 mx-auto mb-4 text-gray-600 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -242,8 +233,7 @@ import {
               <p class="text-sm text-gray-600 dark:text-gray-600">Faktury i protokoły pojawią się tutaj po realizacji usługi.</p>
               <p class="mono text-xs mt-2 text-gray-600 dark:text-gray-500">// wersja demonstracyjna</p>
             </div>
-          </div>
-        }
+        </div>
       </div>
     </div>
   `,

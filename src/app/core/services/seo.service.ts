@@ -18,9 +18,11 @@ const SITE_NAME = 'APEX Mechanik';
 const AUTO_REPAIR_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'AutoRepair',
+  '@id': `${SITE_URL}/#business`,
   name: 'APEX Mechanik',
   description: 'Profesjonalny serwis samochodowy - diagnostyka komputerowa, naprawy mechaniczne, klimatyzacja, hamulce, zawieszenie, elektryka.',
-  url: 'http://konrad.malinowski.ct8.pl/',
+  disambiguatingDescription: 'Fikcyjna firma stworzona wyłącznie jako demonstracja portfolio (nie jest to działający warsztat ani realny podmiot).',
+  url: `${SITE_URL}/`,
   telephone: '+48500100200',
   email: 'kontakt@apex-mechanik.pl',
   address: {
@@ -54,6 +56,11 @@ const AUTO_REPAIR_SCHEMA = {
     '@type': 'AggregateRating',
     ratingValue: '4.9',
     reviewCount: '312',
+  },
+  creator: {
+    '@type': 'Person',
+    name: 'Konrad Malinowski',
+    url: 'http://konrad.malinowski.ct8.pl/',
   },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',

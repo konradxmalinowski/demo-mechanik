@@ -125,42 +125,26 @@ const ADVANTAGES = [
             <p class="text-gray-600 dark:text-gray-400" style="max-width:36rem;margin:0 auto">Kompleksowy serwis dla wszystkich marek - z gwarancją jakości na każdą naprawę.</p>
           </div>
 
-          <!-- Skeleton loading state -->
-          @if (servicesLoaded()) {
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              @for (service of services; track service.id) {
-                <article class="rounded-xl p-6 hover:scale-105 transition-transform duration-300 bg-gray-50 dark:bg-mechanik-surface border border-gray-200 dark:border-white/5">
-                  <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-mechanik-red/10">
-                    <svg class="w-6 h-6 text-mechanik-noir dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="service.icon" />
-                    </svg>
-                  </div>
-                  <h3 class="text-lg font-bold mb-2">{{ service.name }}</h3>
-                  <p class="text-sm mb-4 text-gray-600 dark:text-gray-400">{{ service.description }}</p>
-                  <div class="flex items-center justify-between text-xs mb-4 text-gray-500 dark:text-gray-500">
-                    <span>{{ service.approxTime }}</span>
-                    <span>od {{ service.approxCost }}</span>
-                  </div>
-                  <a routerLink="/rezerwacja" class="inline-flex w-full items-center justify-center px-4 py-2 font-semibold text-sm rounded-lg transition-colors hover:opacity-90 bg-mechanik-red text-white">
-                    Umów wizytę
-                  </a>
-                </article>
-              }
-            </div>
-          } @else {
-            <!-- Skeleton -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              @for (i of skeletonItems; track i) {
-                <div class="rounded-xl p-6 animate-pulse bg-gray-50 dark:bg-mechanik-surface border border-gray-200 dark:border-white/5">
-                  <div class="w-12 h-12 rounded-lg mb-4 bg-gray-200 dark:bg-white/10"></div>
-                  <div class="h-5 rounded mb-2 w-3/4 bg-gray-200 dark:bg-white/10"></div>
-                  <div class="h-3 rounded mb-1 w-full bg-gray-100 dark:bg-white/5"></div>
-                  <div class="h-3 rounded mb-4 w-5/6 bg-gray-100 dark:bg-white/5"></div>
-                  <div class="h-9 rounded bg-gray-200 dark:bg-white/10"></div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            @for (service of services; track service.id) {
+              <article class="rounded-xl p-6 hover:scale-105 transition-transform duration-300 bg-gray-50 dark:bg-mechanik-surface border border-gray-200 dark:border-white/5">
+                <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-mechanik-red/10">
+                  <svg class="w-6 h-6 text-mechanik-noir dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="service.icon" />
+                  </svg>
                 </div>
-              }
-            </div>
-          }
+                <h3 class="text-lg font-bold mb-2">{{ service.name }}</h3>
+                <p class="text-sm mb-4 text-gray-600 dark:text-gray-400">{{ service.description }}</p>
+                <div class="flex items-center justify-between text-xs mb-4 text-gray-500 dark:text-gray-500">
+                  <span>{{ service.approxTime }}</span>
+                  <span>od {{ service.approxCost }}</span>
+                </div>
+                <a routerLink="/rezerwacja" class="inline-flex w-full items-center justify-center px-4 py-2 font-semibold text-sm rounded-lg transition-colors hover:opacity-90 bg-mechanik-red text-white">
+                  Umów wizytę
+                </a>
+              </article>
+            }
+          </div>
         </div>
       </section>
 
@@ -228,57 +212,41 @@ const ADVANTAGES = [
             <p class="text-gray-600 dark:text-gray-400">Co mówią kierowcy, którym zaufali nam swoje auto.</p>
           </div>
 
-          @if (testimonialsLoaded()) {
-            <div class="relative overflow-hidden">
-              <div class="testimonial-track" [style.transform]="'translateX(-' + (testimonialIndex() * (100 / visibleTestimonials)) + '%)'">
-                @for (t of testimonials; track t.id) {
-                  <div class="flex-shrink-0 px-3" [style.width]="(100 / visibleTestimonials) + '%'">
-                    <div class="rounded-xl p-6 h-full bg-white dark:bg-mechanik-noir border border-gray-200 dark:border-white/10">
-                      <div class="flex items-center gap-1 mb-3">
-                        @for (star of starsArray(t.rating); track $index) {
-                          <svg class="w-4 h-4 text-mechanik-yellow" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                          </svg>
-                        }
-                      </div>
-                      <p class="text-sm mb-4 leading-relaxed text-gray-700 dark:text-gray-300">"{{ t.comment }}"</p>
-                      <div>
-                        <p class="font-semibold text-sm">{{ t.name }}</p>
-                        <p class="text-xs text-gray-500 dark:text-gray-500">{{ t.vehicle }}</p>
-                      </div>
+          <div class="relative overflow-hidden">
+            <div class="testimonial-track" [style.transform]="'translateX(-' + (testimonialIndex() * (100 / visibleTestimonials)) + '%)'">
+              @for (t of testimonials; track t.id) {
+                <div class="flex-shrink-0 px-3" [style.width]="(100 / visibleTestimonials) + '%'">
+                  <div class="rounded-xl p-6 h-full bg-white dark:bg-mechanik-noir border border-gray-200 dark:border-white/10">
+                    <div class="flex items-center gap-1 mb-3">
+                      @for (star of starsArray(t.rating); track $index) {
+                        <svg class="w-4 h-4 text-mechanik-yellow" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      }
+                    </div>
+                    <p class="text-sm mb-4 leading-relaxed text-gray-700 dark:text-gray-300">"{{ t.comment }}"</p>
+                    <div>
+                      <p class="font-semibold text-sm">{{ t.name }}</p>
+                      <p class="text-xs text-gray-500 dark:text-gray-500">{{ t.vehicle }}</p>
                     </div>
                   </div>
-                }
-              </div>
-
-              <div class="flex justify-center gap-3 mt-6">
-                <button type="button" (click)="prevTestimonial()" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors bg-gray-200 hover:bg-gray-300 dark:bg-white/10 dark:hover:bg-white/20" aria-label="Poprzednia opinia">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-                <button type="button" (click)="nextTestimonial()" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors bg-gray-200 hover:bg-gray-300 dark:bg-white/10 dark:hover:bg-white/20" aria-label="Następna opinia">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          } @else {
-            <!-- Skeleton testimonials -->
-            <div class="grid md:grid-cols-3 gap-6">
-              @for (i of skeletonItems; track i) {
-                <div class="rounded-xl p-6 animate-pulse bg-white dark:bg-mechanik-noir border border-gray-200 dark:border-white/10">
-                  <div class="flex gap-1 mb-3">
-                    @for (s of [1,2,3,4,5]; track s) { <div class="w-4 h-4 rounded bg-gray-200 dark:bg-white/10"></div> }
-                  </div>
-                  <div class="h-3 rounded mb-1 w-full bg-gray-200 dark:bg-white/10"></div>
-                  <div class="h-3 rounded mb-4 w-4/5 bg-gray-100 dark:bg-white/[0.08]"></div>
-                  <div class="h-4 rounded w-2/5 bg-gray-200 dark:bg-white/10"></div>
                 </div>
               }
             </div>
-          }
+
+            <div class="flex justify-center gap-3 mt-6">
+              <button type="button" (click)="prevTestimonial()" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors bg-gray-200 hover:bg-gray-300 dark:bg-white/10 dark:hover:bg-white/20" aria-label="Poprzednia opinia">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button type="button" (click)="nextTestimonial()" class="w-10 h-10 rounded-full flex items-center justify-center transition-colors bg-gray-200 hover:bg-gray-300 dark:bg-white/10 dark:hover:bg-white/20" aria-label="Następna opinia">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -341,10 +309,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   protected readonly faq: FaqItem[] = FAQ_DATA;
   protected readonly processSteps = PROCESS_STEPS;
   protected readonly advantages = ADVANTAGES;
-  protected readonly skeletonItems = [1, 2, 3];
 
-  protected readonly servicesLoaded = signal(false);
-  protected readonly testimonialsLoaded = signal(false);
   protected readonly openFaqId = signal<number | null>(null);
   protected readonly testimonialIndex = signal(0);
   protected readonly visibleTestimonials = 3;
@@ -354,10 +319,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor() {
     afterNextRender(() => {
       if (isPlatformBrowser(this.platformId)) {
-        // Trigger skeleton resolve
-        setTimeout(() => this.servicesLoaded.set(true), 600);
-        setTimeout(() => this.testimonialsLoaded.set(true), 900);
-
         // IntersectionObserver for scroll animations
         const sections = this.el.nativeElement.querySelectorAll('.animate-section');
         const obs = new IntersectionObserver(

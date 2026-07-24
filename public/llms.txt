@@ -4,8 +4,12 @@
 > Konrad Malinowski as part of his portfolio. Angular 21 with Signals and Tailwind
 > CSS - it shows prospective clients what their own workshop website could look like.
 
-The site content is in Polish. All data is mock data; the client zone, repair
-history, and cost calculator are simulated client-side with no backend.
+The site content is in Polish. All business data - the "APEX Mechanik" name,
+address, phone number, reviews and ratings - is fictional placeholder content
+for demonstration purposes, not a real, operating business. The client zone,
+repair history, and cost calculator are simulated client-side with no backend;
+nothing submitted through any form (booking, contact, calculator) is sent
+anywhere or stored.
 
 ## Features
 
@@ -16,10 +20,22 @@ history, and cost calculator are simulated client-side with no backend.
 - Next service inspection added automatically to the client's calendar
 - Fully responsive, mobile-first
 
+## Pages
+
+- [Home](https://konradxmalinowski.github.io/demo-mechanik/): overview, services grid, process, FAQ
+- [Services](https://konradxmalinowski.github.io/demo-mechanik/uslugi): full service catalogue with approximate time/cost
+- [Booking](https://konradxmalinowski.github.io/demo-mechanik/rezerwacja): 6-step appointment booking flow
+- [Client zone](https://konradxmalinowski.github.io/demo-mechanik/strefa-klienta): mock vehicle dashboard - visit history, repair history, service recommendations, documents
+- [Cost calculator](https://konradxmalinowski.github.io/demo-mechanik/kalkulator): category + option based repair cost estimator
+- [Contact](https://konradxmalinowski.github.io/demo-mechanik/kontakt): contact details and demo contact form
+
 ## Tech
 
 - Angular 21, TypeScript, Angular Signals
 - Tailwind CSS (utility-first styling)
+- Server-side rendered / prerendered at build time (all 6 routes above are
+  static HTML with the full content already in the initial response - no
+  client-side JavaScript execution required to read any page)
 - Angular CLI build tooling
 
 ## Links
@@ -27,3 +43,5 @@ history, and cost calculator are simulated client-side with no backend.
 - [Source code](https://github.com/konradxmalinowski/demo-mechanik): GitHub repository
 - [Developer portfolio](http://konrad.malinowski.ct8.pl): Konrad Malinowski - freelance web developer
 - [Contact](mailto:malinowski.konrad45@gmail.com): get a similar website for your business
+
+Last updated: 2026-07-24
