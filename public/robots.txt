@@ -1,4 +1,63 @@
+# demo-mechanik - public portfolio demo site, no user data, no paywall.
+# Default policy: allow everyone, including AI crawlers. The whole point of a
+# portfolio piece is to be found, read and (ideally) cited - there is nothing
+# here worth gatekeeping, and every "client" record is mock data (see llms.txt).
 User-agent: *
+Allow: /
+
+# --- AI crawlers, listed explicitly so the policy is a deliberate choice ---
+# rather than an accident of the wildcard rule above.
+
+# Training-data crawlers (scrape to build/improve a model, not to answer a
+# live user question). Allowed here for the same reason as above.
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Live-retrieval crawlers (fetch a page on behalf of a user asking a question
+# right now, e.g. in ChatGPT/Claude/Perplexity search or browsing mode).
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
 Allow: /
 
 Sitemap: https://konradxmalinowski.github.io/demo-mechanik/sitemap.xml
