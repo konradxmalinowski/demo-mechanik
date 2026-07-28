@@ -88,7 +88,7 @@ const NAV_LINKS: NavLink[] = [
         <div class="flex items-center justify-between h-16">
           <!-- Logo -->
           <a routerLink="/" class="flex items-center gap-2" aria-label="APEX Mechanik - strona główna">
-            <span class="text-red-500 font-black text-xl tracking-tight uppercase">APEX</span>
+            <span class="text-mechanik-red-light-text dark:text-mechanik-red-dark-text font-black text-xl tracking-tight uppercase">APEX</span>
             <span class="text-mechanik-noir dark:text-white font-light text-xl tracking-widest uppercase">Mechanik</span>
           </a>
 
@@ -97,7 +97,7 @@ const NAV_LINKS: NavLink[] = [
             @for (link of navLinks; track link.route) {
               <a
                 [routerLink]="link.route"
-                routerLinkActive="text-red-400 border-b border-red-400"
+                routerLinkActive="text-mechanik-red-light-text dark:text-mechanik-red-dark-text border-b border-mechanik-red-light-text dark:border-mechanik-red-dark-text"
                 [routerLinkActiveOptions]="{ exact: link.route === '/' }"
                 class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-mechanik-noir dark:hover:text-white transition-colors duration-200 rounded-sm"
               >{{ link.label }}</a>
@@ -128,7 +128,7 @@ const NAV_LINKS: NavLink[] = [
             <!-- Book CTA button -->
             <a
               routerLink="/rezerwacja"
-              class="hidden sm:inline-flex items-center px-4 py-2 bg-red-500 text-white text-sm font-semibold rounded-lg hover:bg-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+              class="hidden sm:inline-flex items-center px-4 py-2 bg-mechanik-red text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-colors focus:outline-none focus:ring-2 focus:ring-mechanik-red focus:ring-offset-2"
             >Umów wizytę</a>
 
             <!-- Mobile hamburger -->
@@ -189,7 +189,7 @@ const NAV_LINKS: NavLink[] = [
           @for (link of navLinks; track link.route) {
             <a
               [routerLink]="link.route"
-              routerLinkActive="text-red-400 bg-red-500/10"
+              routerLinkActive="text-mechanik-red-light-text dark:text-mechanik-red-dark-text bg-mechanik-red-light-text/10 dark:bg-mechanik-red-dark-text/10"
               [routerLinkActiveOptions]="{ exact: link.route === '/' }"
               (click)="closeMenu()"
               class="flex items-center px-4 py-3 text-gray-600 dark:text-gray-300 hover:text-mechanik-noir dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 rounded-lg transition-colors mb-1 text-base font-medium"
@@ -201,7 +201,7 @@ const NAV_LINKS: NavLink[] = [
           <a
             routerLink="/rezerwacja"
             (click)="closeMenu()"
-            class="flex items-center justify-center w-full px-4 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition-colors"
+            class="flex items-center justify-center w-full px-4 py-3 bg-mechanik-red text-white font-semibold rounded-lg hover:opacity-90 transition-colors"
           >Umów wizytę</a>
         </div>
       </nav>

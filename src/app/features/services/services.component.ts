@@ -17,7 +17,7 @@ import { SERVICES_DATA } from '../../data/services.data';
           <ol class="flex items-center gap-2">
             <li><a routerLink="/" class="hover:text-mechanik-noir dark:hover:text-white transition-colors">Start</a></li>
             <li><span aria-hidden="true">/</span></li>
-            <li class="text-red-600 dark:text-red-400" aria-current="page">Usługi</li>
+            <li class="text-mechanik-red-light-text dark:text-mechanik-red-dark-text" aria-current="page">Usługi</li>
           </ol>
         </nav>
 

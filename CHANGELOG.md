@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.2] - 2026-07-28
+
+### Changed
+- Toned down the app's overall visual style, previously too sharp/"rally-racing" in
+  character. The brand red (`mechanik-red`) is now a darkened, WCAG AA-verified shade,
+  consolidated into a single Tailwind token - previously scattered across 26 hardcoded
+  hex values and 22 raw Tailwind classes. Section heading weight changed from
+  `font-black` to `font-bold` app-wide (the hero `<h1>` keeps `font-black` as one
+  deliberate strong accent).
+- STREFA KLIENTA (customer zone dashboard) lost its terminal/code-comment aesthetic:
+  the `// ` prefixes on section headings and labels were removed, and the monospace
+  font was scoped back to VIN and other numeric values only, instead of all body text.
+- Removed the hero's "Premium Auto Service" badge entirely.
+- Removed the pulsing dot animation from the "DEMO MODE" badge; the badge itself
+  remains, now with a static indicator dot.
+
+### Fixed
+- Homepage testimonials carousel: the visible card count was a fixed value regardless
+  of viewport width, making cards unreadably narrow on phones. It now adjusts by
+  viewport width instead.
+- Booking page's 6-step progress indicator overflowed the viewport on small screens
+  instead of shrinking; it now scales down on small screens.
+
 ## [0.1.1] - 2026-07-28
 
 ### Changed

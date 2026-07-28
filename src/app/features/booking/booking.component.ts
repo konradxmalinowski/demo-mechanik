@@ -45,14 +45,23 @@ function getCalendarDays(year: number, month: number): (number | null)[] {
     ]),
   ],
   styles: [`
-    .step-bubble { width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .875rem; font-weight: 700; transition: all .3s; }
+    .step-bubble { width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .875rem; font-weight: 700; transition: all .3s; flex-shrink: 0; }
     .step-bubble.active { background: var(--apex-accent); color: #fff; }
     .step-bubble.inactive { background: rgba(0,0,0,.06); color: #6b7280; }
     :host-context(.dark) .step-bubble.inactive { background: rgba(255,255,255,.1); color: #6b7280; }
-    .step-line { height: 2px; width: 2.5rem; border-radius: 1px; transition: background .3s; }
+    .step-line { height: 2px; width: 2.5rem; border-radius: 1px; transition: background .3s; flex-shrink: 0; }
     .step-line.filled { background: var(--apex-accent); }
     .step-line.empty { background: rgba(0,0,0,.1); }
     :host-context(.dark) .step-line.empty { background: rgba(255,255,255,.1); }
+    /* Mobile fix (2026-07-28): 6 fixed-size bubbles + 5 lines overflow viewports
+       under ~480px (e.g. iPhone SE at 375px). Shrink instead of scrolling -
+       still comfortably tappable at 1.5rem, and the whole 6-step bar then fits
+       down to 320px. */
+    @media (max-width: 480px) {
+      .step-progress, .step-item { gap: .25rem; }
+      .step-bubble { width: 1.5rem; height: 1.5rem; font-size: .75rem; }
+      .step-line { width: 1rem; }
+    }
     .service-btn { border-radius: .75rem; border-width: 1px; border-style: solid; display: flex; align-items: flex-start; gap: .75rem; padding: 1rem; text-align: left; transition: all .2s; cursor: pointer; }
     .service-btn.selected { border-color: var(--apex-accent); background: rgb(var(--apex-accent-rgb) / .1); }
     .service-btn.unselected { border-color: rgba(0,0,0,.1); background: #F9FAFB; }
@@ -79,7 +88,7 @@ function getCalendarDays(year: number, month: number): (number | null)[] {
           <ol class="flex items-center gap-2">
             <li><a routerLink="/" class="hover:text-mechanik-noir dark:hover:text-white transition-colors">Start</a></li>
             <li>/</li>
-            <li class="text-red-600 dark:text-red-400" aria-current="page">Rezerwacja</li>
+            <li class="text-mechanik-red-light-text dark:text-mechanik-red-dark-text" aria-current="page">Rezerwacja</li>
           </ol>
         </nav>
 
@@ -87,9 +96,9 @@ function getCalendarDays(year: number, month: number): (number | null)[] {
         <p class="text-gray-600 dark:text-gray-400 mb-8">Wypełnij formularz w kilku prostych krokach.</p>
 
         <!-- Progress -->
-        <div class="flex items-center gap-2 mb-10" role="progressbar" [attr.aria-valuenow]="signals.step()" aria-valuemin="1" aria-valuemax="6">
+        <div class="step-progress flex items-center gap-2 mb-10" role="progressbar" [attr.aria-valuenow]="signals.step()" aria-valuemin="1" aria-valuemax="6">
           @for (n of stepNumbers; track n) {
-            <div class="flex items-center gap-2">
+            <div class="step-item flex items-center gap-2">
               <div class="step-bubble" [class.active]="signals.step() >= n" [class.inactive]="signals.step() < n">{{ n }}</div>
               @if (n < 6) {
                 <div class="step-line" [class.filled]="signals.step() > n" [class.empty]="signals.step() <= n"></div>
@@ -106,7 +115,7 @@ function getCalendarDays(year: number, month: number): (number | null)[] {
               <div>
                 <label for="marka" class="block text-sm text-gray-600 dark:text-gray-400 mb-1">Marka pojazdu *</label>
                 <select id="marka" formControlName="marka"
-                  class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#EF4444] transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white">
+                  class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-mechanik-red-light-text dark:focus:border-mechanik-red-dark-text transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white">
                   <option value="" disabled>Wybierz markę</option>
                   @for (brand of carBrands; track brand) {
                     <option [value]="brand">{{ brand }}</option>
@@ -116,13 +125,13 @@ function getCalendarDays(year: number, month: number): (number | null)[] {
               <div>
                 <label for="model" class="block text-sm text-gray-600 dark:text-gray-400 mb-1">Model *</label>
                 <input id="model" type="text" formControlName="model" placeholder="np. 320d, A4, Golf"
-                  class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#EF4444] transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
+                  class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-mechanik-red-light-text dark:focus:border-mechanik-red-dark-text transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
               </div>
               <div class="grid grid-cols-2 gap-4">
                 <div>
                   <label for="rocznik" class="block text-sm text-gray-600 dark:text-gray-400 mb-1">Rocznik *</label>
                   <select id="rocznik" formControlName="rocznik"
-                    class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#EF4444] transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white">
+                    class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-mechanik-red-light-text dark:focus:border-mechanik-red-dark-text transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white">
                     <option value="" disabled>Rok</option>
                     @for (year of years; track year) {
                       <option [value]="year">{{ year }}</option>
@@ -132,7 +141,7 @@ function getCalendarDays(year: number, month: number): (number | null)[] {
                 <div>
                   <label for="przebieg" class="block text-sm text-gray-600 dark:text-gray-400 mb-1">Przebieg (km) *</label>
                   <input id="przebieg" type="number" formControlName="przebieg" placeholder="np. 65000"
-                    class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#EF4444] transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
+                    class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-mechanik-red-light-text dark:focus:border-mechanik-red-dark-text transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
                 </div>
               </div>
             </form>
@@ -233,23 +242,23 @@ function getCalendarDays(year: number, month: number): (number | null)[] {
                 <div>
                   <label for="imie" class="block text-sm text-gray-600 dark:text-gray-400 mb-1">Imię *</label>
                   <input id="imie" type="text" formControlName="imie" placeholder="Jan"
-                    class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#EF4444] transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
+                    class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-mechanik-red-light-text dark:focus:border-mechanik-red-dark-text transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
                 </div>
                 <div>
                   <label for="nazwisko" class="block text-sm text-gray-600 dark:text-gray-400 mb-1">Nazwisko *</label>
                   <input id="nazwisko" type="text" formControlName="nazwisko" placeholder="Kowalski"
-                    class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#EF4444] transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
+                    class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-mechanik-red-light-text dark:focus:border-mechanik-red-dark-text transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
                 </div>
               </div>
               <div>
                 <label for="telefon" class="block text-sm text-gray-600 dark:text-gray-400 mb-1">Numer telefonu *</label>
                 <input id="telefon" type="tel" formControlName="telefon" placeholder="+48 500 100 200"
-                  class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#EF4444] transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
+                  class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-mechanik-red-light-text dark:focus:border-mechanik-red-dark-text transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
               </div>
               <div>
                 <label for="email-contact" class="block text-sm text-gray-600 dark:text-gray-400 mb-1">Adres e-mail *</label>
                 <input id="email-contact" type="email" formControlName="email" placeholder="jan@example.com"
-                  class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#EF4444] transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
+                  class="w-full rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-mechanik-red-light-text dark:focus:border-mechanik-red-dark-text transition-colors bg-gray-50 dark:bg-mechanik-surface border border-gray-300 dark:border-white/10 text-mechanik-noir dark:text-white placeholder-gray-400 dark:placeholder-gray-600" />
               </div>
             </form>
           </div>
