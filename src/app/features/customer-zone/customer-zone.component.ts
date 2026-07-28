@@ -38,8 +38,8 @@ import {
     :host-context(.dark) .badge-pilne { background: rgb(var(--apex-accent-rgb) / .2); color: #f87171; border: 1px solid rgb(var(--apex-accent-rgb) / .3); }
     .badge-zalecane { background: rgba(250,204,21,.15); color: #92400E; border: 1px solid rgba(250,204,21,.4); }
     :host-context(.dark) .badge-zalecane { background: rgba(250,204,21,.1); color: #FACC15; border: 1px solid rgba(250,204,21,.3); }
-    .badge-informacyjne { background: rgba(59,130,246,.1); color: #1D4ED8; border: 1px solid rgba(59,130,246,.3); }
-    :host-context(.dark) .badge-informacyjne { background: rgba(59,130,246,.1); color: #60a5fa; border: 1px solid rgba(59,130,246,.3); }
+    .badge-informacyjne { background: rgba(10,10,11,.06); color: #4B5563; border: 1px solid rgba(10,10,11,.2); }
+    :host-context(.dark) .badge-informacyjne { background: rgba(255,255,255,.08); color: #9CA3AF; border: 1px solid rgba(255,255,255,.2); }
     .tab-btn { padding: .625rem 1rem; border-radius: .5rem; font-size: .875rem; font-weight: 600; transition: all .2s; cursor: pointer; border: none; }
     .tab-btn.active { background: var(--apex-accent); color: #fff; }
     .tab-btn.inactive { background: transparent; color: #4B5563; }
@@ -58,7 +58,7 @@ import {
           <ol class="flex items-center gap-2">
             <li><a routerLink="/" class="hover:text-mechanik-noir dark:hover:text-white transition-colors">Start</a></li>
             <li>/</li>
-            <li class="text-red-600 dark:text-red-400" aria-current="page">Strefa Klienta</li>
+            <li class="text-[#B91C1C] dark:text-mechanik-red" aria-current="page">Strefa Klienta</li>
           </ol>
         </nav>
 
@@ -153,7 +153,7 @@ import {
                         <td class="px-6 py-4 text-sm">{{ visit.date }}</td>
                         <td class="px-6 py-4">{{ visit.service }}</td>
                         <td class="px-6 py-4">
-                          <span class="px-2 py-0.5 rounded text-xs font-semibold bg-green-500/10 text-green-700 dark:text-green-400 border border-green-500/30">
+                          <span class="px-2 py-0.5 rounded text-xs font-semibold bg-gray-500/10 text-gray-700 dark:text-gray-400 border border-gray-500/30">
                             {{ visit.status }}
                           </span>
                         </td>

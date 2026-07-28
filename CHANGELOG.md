@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2026-07-28
+
+### Changed
+- STREFA KLIENTA (customer zone dashboard): replaced off-brand blue/green badge
+  colors with neutral tones consistent with the app's actual palette
+  (mechanik-noir/red/yellow), and unified the breadcrumb's raw red with the
+  brand's established `mechanik-red` variant. The mono/terminal visual style
+  itself is unchanged - only the color choices.
+
 ## [0.1.0] - 2026-07-24
 
 ### Added
