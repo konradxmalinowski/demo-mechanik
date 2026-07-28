@@ -6,15 +6,23 @@
 
 :root {
   --color-noir: #0A0A0B;
-  --color-red: #EF4444;
+  --color-red: #B91C1C;
   --color-yellow: #FACC15;
   --color-light: #F9FAFB;
   --color-bg: var(--color-light);
   --color-text: var(--color-noir);
-  --apex-accent: #EF4444;
+  /* Toned-down brand red (2026-07-28 restyle) - keep in sync with
+     tailwind.config.js mechanik.red. --apex-accent is used for solid-fill +
+     white-text contexts (buttons, active tabs/steps) that don't switch with
+     the page theme, so it always uses the darker, AA-safe shade. */
+  --apex-accent: #B91C1C;
   /* RGB channels of --apex-accent for translucent derivatives:
      rgb(var(--apex-accent-rgb) / .1) - keep in sync with --apex-accent */
-  --apex-accent-rgb: 239 68 68;
+  --apex-accent-rgb: 185 28 28;
+  /* Brighter variant reserved for text/accents on fixed-dark backgrounds
+     (e.g. dark-mode-only overrides) - keep in sync with mechanik-red-dark-text. */
+  --apex-accent-dark: #EF4444;
+  --apex-accent-dark-rgb: 239 68 68;
 }
 
 .dark {

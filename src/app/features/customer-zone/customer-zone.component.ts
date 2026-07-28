@@ -33,9 +33,11 @@ import {
   ],
   styles: [`
     :host { display: block; }
-    .mono { font-family: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', 'Courier New', monospace; }
-    .badge-pilne { background: rgba(239,68,68,.1); color: #B91C1C; border: 1px solid rgba(239,68,68,.3); }
-    :host-context(.dark) .badge-pilne { background: rgb(var(--apex-accent-rgb) / .2); color: #f87171; border: 1px solid rgb(var(--apex-accent-rgb) / .3); }
+    /* .mono relies on the global class in styles.scss now that usage is
+       scoped down to the VIN/numeric values (see plan report) - the local
+       duplicate declaration that used to live here has been removed. */
+    .badge-pilne { background: rgb(var(--apex-accent-rgb) / .1); color: var(--apex-accent); border: 1px solid rgb(var(--apex-accent-rgb) / .3); }
+    :host-context(.dark) .badge-pilne { background: rgb(var(--apex-accent-dark-rgb) / .2); color: var(--apex-accent-dark); border: 1px solid rgb(var(--apex-accent-dark-rgb) / .3); }
     .badge-zalecane { background: rgba(250,204,21,.15); color: #92400E; border: 1px solid rgba(250,204,21,.4); }
     :host-context(.dark) .badge-zalecane { background: rgba(250,204,21,.1); color: #FACC15; border: 1px solid rgba(250,204,21,.3); }
     .badge-informacyjne { background: rgba(10,10,11,.06); color: #4B5563; border: 1px solid rgba(10,10,11,.2); }
@@ -58,17 +60,17 @@ import {
           <ol class="flex items-center gap-2">
             <li><a routerLink="/" class="hover:text-mechanik-noir dark:hover:text-white transition-colors">Start</a></li>
             <li>/</li>
-            <li class="text-[#B91C1C] dark:text-mechanik-red" aria-current="page">Strefa Klienta</li>
+            <li class="text-mechanik-red-light-text dark:text-mechanik-red-dark-text" aria-current="page">Strefa Klienta</li>
           </ol>
         </nav>
 
         <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-8 gap-4">
           <div>
-            <h1 class="text-4xl font-black mb-1 mono">STREFA KLIENTA</h1>
-            <p class="mono text-sm text-gray-600 dark:text-gray-500">// diagnostic_dashboard_v2.0</p>
+            <h1 class="text-4xl font-black mb-1">STREFA KLIENTA</h1>
+            <p class="text-sm text-gray-600 dark:text-gray-500">diagnostic_dashboard_v2.0</p>
           </div>
-          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold mono bg-mechanik-red/10 border border-mechanik-red/30 text-mechanik-red">
-            <span class="w-1.5 h-1.5 rounded-full animate-pulse bg-mechanik-red"></span>
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-mechanik-red-light-text/10 dark:bg-mechanik-red-dark-text/10 border border-mechanik-red-light-text/30 dark:border-mechanik-red-dark-text/30 text-mechanik-red-light-text dark:text-mechanik-red-dark-text">
+            <span class="w-1.5 h-1.5 rounded-full bg-mechanik-red-light-text dark:bg-mechanik-red-dark-text"></span>
             DEMO MODE
           </span>
         </div>
@@ -77,9 +79,9 @@ import {
         <div [@slideIn] class="rounded-2xl p-6 mb-8 bg-gray-50 dark:bg-mechanik-surface border border-mechanik-red/20">
           <div class="flex items-start justify-between mb-4">
             <div>
-              <p class="mono text-xs mb-1 text-gray-600 dark:text-gray-500">// POJAZD</p>
-              <h2 class="text-2xl font-black mono">{{ vehicle.brand }} {{ vehicle.model }}</h2>
-              <p class="mono text-sm mt-1 text-gray-600 dark:text-gray-400">{{ vehicle.year }} · {{ vehicle.fuelType }} · {{ vehicle.color }}</p>
+              <p class="text-xs mb-1 text-gray-600 dark:text-gray-500">POJAZD</p>
+              <h2 class="text-2xl font-bold">{{ vehicle.brand }} {{ vehicle.model }}</h2>
+              <p class="text-sm mt-1 text-gray-600 dark:text-gray-400">{{ vehicle.year }} · {{ vehicle.fuelType }} · {{ vehicle.color }}</p>
             </div>
             <div class="text-right">
               <p class="mono text-xs text-gray-600 dark:text-gray-500">VIN</p>
@@ -89,20 +91,20 @@ import {
 
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div class="rounded-lg p-4 bg-gray-100 dark:bg-black/30">
-              <p class="mono text-xs mb-1 text-gray-600 dark:text-gray-500">PRZEBIEG</p>
+              <p class="text-xs mb-1 text-gray-600 dark:text-gray-500">PRZEBIEG</p>
               <p class="mono font-bold text-lg">{{ vehicle.mileage | number }} km</p>
             </div>
             <div class="rounded-lg p-4 bg-gray-100 dark:bg-black/30">
-              <p class="mono text-xs mb-1 text-gray-600 dark:text-gray-500">SILNIK</p>
-              <p class="mono font-bold text-lg">{{ vehicle.engineCapacity }}</p>
+              <p class="text-xs mb-1 text-gray-600 dark:text-gray-500">SILNIK</p>
+              <p class="font-bold text-lg">{{ vehicle.engineCapacity }}</p>
             </div>
             <div class="rounded-lg p-4 bg-gray-100 dark:bg-black/30">
-              <p class="mono text-xs mb-1 text-gray-600 dark:text-gray-500">OSTATNIA WIZYTA</p>
-              <p class="mono font-bold text-sm">{{ vehicle.lastVisit }}</p>
+              <p class="text-xs mb-1 text-gray-600 dark:text-gray-500">OSTATNIA WIZYTA</p>
+              <p class="font-bold text-sm">{{ vehicle.lastVisit }}</p>
             </div>
             <div class="rounded-lg p-4 bg-gray-100 dark:bg-black/30">
-              <p class="mono text-xs mb-1 text-gray-600 dark:text-gray-500">NASTĘPNY SERWIS</p>
-              <p class="mono font-bold text-sm text-amber-700 dark:text-mechanik-yellow">{{ vehicle.nextService }}</p>
+              <p class="text-xs mb-1 text-gray-600 dark:text-gray-500">NASTĘPNY SERWIS</p>
+              <p class="font-bold text-sm text-amber-700 dark:text-mechanik-yellow">{{ vehicle.nextService }}</p>
             </div>
           </div>
         </div>
@@ -130,15 +132,15 @@ import {
              instead of only whichever tab happens to be selected by default. -->
 
         <div role="tabpanel" id="panel-visits" aria-labelledby="tab-visits" [hidden]="activeTab() !== 'visits'">
-            <h2 class="mono text-lg font-bold mb-4">// OSTATNIE WIZYTY</h2>
+            <h2 class="text-lg font-bold mb-4">OSTATNIE WIZYTY</h2>
             @if (lastVisits.length === 0) {
               <div class="text-center py-16 rounded-xl bg-gray-50 dark:bg-mechanik-surface border border-gray-200 dark:border-white/5">
-                <p class="mono text-lg text-gray-600 dark:text-gray-600">// brak_danych</p>
+                <p class="text-lg text-gray-600 dark:text-gray-600">brak_danych</p>
                 <p class="text-sm text-gray-600 dark:text-gray-600 mt-2">Brak historii wizyt</p>
               </div>
             } @else {
               <div class="overflow-x-auto rounded-xl border border-gray-200 dark:border-white/5">
-                <table class="w-full mono text-sm" role="grid" aria-label="Ostatnie wizyty">
+                <table class="w-full text-sm" role="grid" aria-label="Ostatnie wizyty">
                   <thead class="bg-gray-50 dark:bg-mechanik-surface">
                     <tr>
                       <th class="px-6 py-3 text-left text-xs uppercase tracking-wider text-gray-600 dark:text-gray-500">Data</th>
@@ -157,7 +159,7 @@ import {
                             {{ visit.status }}
                           </span>
                         </td>
-                        <td class="px-6 py-4 text-right font-bold text-amber-700 dark:text-mechanik-yellow">{{ visit.cost | number }} zł</td>
+                        <td class="mono px-6 py-4 text-right font-bold text-amber-700 dark:text-mechanik-yellow">{{ visit.cost | number }} zł</td>
                       </tr>
                     }
                   </tbody>
@@ -167,10 +169,10 @@ import {
         </div>
 
         <div role="tabpanel" id="panel-history" aria-labelledby="tab-history" [hidden]="activeTab() !== 'history'">
-            <h2 class="mono text-lg font-bold mb-6">// HISTORIA NAPRAW</h2>
+            <h2 class="text-lg font-bold mb-6">HISTORIA NAPRAW</h2>
             @if (repairHistory.length === 0) {
               <div class="text-center py-16 rounded-xl bg-gray-50 dark:bg-mechanik-surface border border-gray-200 dark:border-white/5">
-                <p class="mono text-lg text-gray-600 dark:text-gray-600">// brak_danych</p>
+                <p class="text-lg text-gray-600 dark:text-gray-600">brak_danych</p>
               </div>
             } @else {
               <div class="space-y-6">
@@ -183,11 +185,11 @@ import {
                     </div>
                     <div class="flex-1 rounded-xl p-4 bg-gray-50 dark:bg-mechanik-surface border border-gray-200 dark:border-white/5">
                       <div class="flex items-start justify-between mb-2">
-                        <p class="mono text-xs text-gray-600 dark:text-gray-500">{{ item.date }}</p>
+                        <p class="text-xs text-gray-600 dark:text-gray-500">{{ item.date }}</p>
                         <span class="mono font-bold text-sm text-amber-700 dark:text-mechanik-yellow">{{ item.cost | number }} zł</span>
                       </div>
                       <p class="text-sm mb-2">{{ item.scope }}</p>
-                      <p class="mono text-xs text-gray-600 dark:text-gray-400">Mechanik: {{ item.mechanic }}</p>
+                      <p class="text-xs text-gray-600 dark:text-gray-400">Mechanik: {{ item.mechanic }}</p>
                     </div>
                   </div>
                 }
@@ -196,12 +198,12 @@ import {
         </div>
 
         <div role="tabpanel" id="panel-recommendations" aria-labelledby="tab-recommendations" [hidden]="activeTab() !== 'recommendations'">
-            <h2 class="mono text-lg font-bold mb-6">// ZALECENIA SERWISOWE</h2>
+            <h2 class="text-lg font-bold mb-6">ZALECENIA SERWISOWE</h2>
             <div class="space-y-4">
               @for (rec of recommendations; track rec.id) {
                 <div class="rounded-xl p-5 flex items-start gap-4 bg-gray-50 dark:bg-mechanik-surface border border-gray-200 dark:border-white/5">
                   <div class="flex-shrink-0 mt-0.5">
-                    <span class="inline-block px-2 py-0.5 rounded text-xs font-semibold mono"
+                    <span class="inline-block px-2 py-0.5 rounded text-xs font-semibold"
                       [class.badge-pilne]="rec.urgency === 'pilne'"
                       [class.badge-zalecane]="rec.urgency === 'zalecane'"
                       [class.badge-informacyjne]="rec.urgency === 'informacyjne'">
@@ -212,10 +214,10 @@ import {
                     <h3 class="font-bold mb-1">{{ rec.title }}</h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400">{{ rec.description }}</p>
                     @if (rec.dueKm) {
-                      <p class="mono text-xs mt-2 text-gray-600 dark:text-gray-500">Termin: {{ rec.dueKm | number }} km</p>
+                      <p class="text-xs mt-2 text-gray-600 dark:text-gray-500">Termin: {{ rec.dueKm | number }} km</p>
                     }
                     @if (rec.dueDate) {
-                      <p class="mono text-xs mt-1 text-gray-600 dark:text-gray-500">Data: {{ rec.dueDate }}</p>
+                      <p class="text-xs mt-1 text-gray-600 dark:text-gray-500">Data: {{ rec.dueDate }}</p>
                     }
                   </div>
                 </div>
@@ -224,14 +226,14 @@ import {
         </div>
 
         <div role="tabpanel" id="panel-documents" aria-labelledby="tab-documents" [hidden]="activeTab() !== 'documents'">
-            <h2 class="mono text-lg font-bold mb-6">// DOKUMENTACJA</h2>
+            <h2 class="text-lg font-bold mb-6">DOKUMENTACJA</h2>
             <div class="text-center py-16 rounded-xl bg-gray-50 dark:bg-mechanik-surface border border-gray-200 dark:border-white/5">
               <svg class="w-12 h-12 mx-auto mb-4 text-gray-600 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              <p class="mono font-bold mb-2 text-gray-600 dark:text-gray-500">// brak_dokumentow</p>
+              <p class="font-bold mb-2 text-gray-600 dark:text-gray-500">brak_dokumentow</p>
               <p class="text-sm text-gray-600 dark:text-gray-600">Faktury i protokoły pojawią się tutaj po realizacji usługi.</p>
-              <p class="mono text-xs mt-2 text-gray-600 dark:text-gray-500">// wersja demonstracyjna</p>
+              <p class="text-xs mt-2 text-gray-600 dark:text-gray-500">wersja demonstracyjna</p>
             </div>
         </div>
       </div>

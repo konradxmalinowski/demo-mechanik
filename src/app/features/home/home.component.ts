@@ -78,14 +78,9 @@ const ADVANTAGES = [
 
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div class="max-w-3xl">
-            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-6 bg-mechanik-red/10 border border-mechanik-red/30 text-mechanik-red">
-              <span class="w-1.5 h-1.5 rounded-full animate-pulse bg-mechanik-red"></span>
-              Premium Auto Service
-            </span>
-
             <h1 class="font-black leading-none tracking-tight mb-6 text-white" style="font-size:clamp(2.5rem,8vw,5rem)">
               Twoje auto<br>
-              <span class="text-mechanik-red">w najlepszych</span><br>
+              <span class="text-mechanik-red-dark-text">w najlepszych</span><br>
               rękach
             </h1>
 
@@ -121,7 +116,7 @@ const ADVANTAGES = [
       <section class="py-24 animate-section" id="services-section" aria-label="Nasze usługi">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-12">
-            <h2 class="text-4xl font-black mb-4">Nasze usługi</h2>
+            <h2 class="text-4xl font-bold mb-4">Nasze usługi</h2>
             <p class="text-gray-600 dark:text-gray-400" style="max-width:36rem;margin:0 auto">Kompleksowy serwis dla wszystkich marek - z gwarancją jakości na każdą naprawę.</p>
           </div>
 
@@ -152,7 +147,7 @@ const ADVANTAGES = [
       <section class="py-24 animate-section bg-gray-50 dark:bg-mechanik-surface" id="process-section" aria-label="Jak pracujemy">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
-            <h2 class="text-4xl font-black mb-4">Jak pracujemy</h2>
+            <h2 class="text-4xl font-bold mb-4">Jak pracujemy</h2>
             <p class="text-gray-600 dark:text-gray-400">Prosty, przejrzysty proces - od rezerwacji do odbioru.</p>
           </div>
 
@@ -182,7 +177,7 @@ const ADVANTAGES = [
       <section class="py-24 animate-section" id="advantages-section" aria-label="Dlaczego my">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-12">
-            <h2 class="text-4xl font-black mb-4">Dlaczego my?</h2>
+            <h2 class="text-4xl font-bold mb-4">Dlaczego my?</h2>
             <p class="text-gray-600 dark:text-gray-400" style="max-width:36rem;margin:0 auto">Wybrało nas już ponad 3 200 kierowców - oto dlaczego nam ufają.</p>
           </div>
 
@@ -208,14 +203,14 @@ const ADVANTAGES = [
       <section class="py-24 animate-section bg-gray-50 dark:bg-mechanik-surface" id="testimonials-section" aria-label="Opinie klientów">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-12">
-            <h2 class="text-4xl font-black mb-4">Opinie klientów</h2>
+            <h2 class="text-4xl font-bold mb-4">Opinie klientów</h2>
             <p class="text-gray-600 dark:text-gray-400">Co mówią kierowcy, którym zaufali nam swoje auto.</p>
           </div>
 
           <div class="relative overflow-hidden">
-            <div class="testimonial-track" [style.transform]="'translateX(-' + (testimonialIndex() * (100 / visibleTestimonials)) + '%)'">
+            <div class="testimonial-track" [style.transform]="'translateX(-' + (testimonialIndex() * (100 / visibleTestimonials())) + '%)'">
               @for (t of testimonials; track t.id) {
-                <div class="flex-shrink-0 px-3" [style.width]="(100 / visibleTestimonials) + '%'">
+                <div class="flex-shrink-0 px-3" [style.width]="(100 / visibleTestimonials()) + '%'">
                   <div class="rounded-xl p-6 h-full bg-white dark:bg-mechanik-noir border border-gray-200 dark:border-white/10">
                     <div class="flex items-center gap-1 mb-3">
                       @for (star of starsArray(t.rating); track $index) {
@@ -254,7 +249,7 @@ const ADVANTAGES = [
       <section class="py-24 animate-section" id="faq-section" aria-label="Często zadawane pytania">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-12">
-            <h2 class="text-4xl font-black mb-4">FAQ</h2>
+            <h2 class="text-4xl font-bold mb-4">FAQ</h2>
             <p class="text-gray-600 dark:text-gray-400">Najczęściej zadawane pytania.</p>
           </div>
 
@@ -286,7 +281,7 @@ const ADVANTAGES = [
       <!-- CTA -->
       <section class="py-24 text-center bg-gradient-to-br from-gray-100 to-white dark:from-mechanik-surface dark:to-mechanik-noir" aria-label="Wezwanie do działania">
         <div class="max-w-2xl mx-auto px-4">
-          <h2 class="text-4xl font-black mb-4">Gotowy na serwis premium?</h2>
+          <h2 class="text-4xl font-bold mb-4">Gotowy na serwis premium?</h2>
           <p class="mb-8 text-gray-600 dark:text-gray-400">Umów wizytę online w 2 minuty - bez kolejek, bez stresu.</p>
           <a routerLink="/rezerwacja" class="inline-flex items-center gap-3 px-10 py-4 font-bold text-lg rounded-xl transition-all hover:scale-105 bg-mechanik-red text-white">
             Umów wizytę teraz
@@ -312,9 +307,13 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   protected readonly openFaqId = signal<number | null>(null);
   protected readonly testimonialIndex = signal(0);
-  protected readonly visibleTestimonials = 3;
+  // Responsive: 1 card on mobile, 2 on tablet, 3 on desktop - was a hardcoded
+  // constant (3) independent of viewport width, making cards unreadably
+  // narrow on phones (each got 100/3 width regardless of screen size).
+  protected readonly visibleTestimonials = signal(3);
 
   private observers: IntersectionObserver[] = [];
+  private resizeListener: (() => void) | null = null;
 
   constructor() {
     afterNextRender(() => {
@@ -334,8 +333,27 @@ export class HomeComponent implements OnInit, OnDestroy {
         );
         sections.forEach((s: Element) => obs.observe(s));
         this.observers.push(obs);
+
+        // Testimonials carousel: recompute visible card count on resize so it
+        // actually responds to viewport changes, not just the initial load.
+        this.updateVisibleTestimonials();
+        this.resizeListener = () => this.updateVisibleTestimonials();
+        window.addEventListener('resize', this.resizeListener, { passive: true });
       }
     });
+  }
+
+  private updateVisibleTestimonials(): void {
+    const width = window.innerWidth;
+    const next = width < 640 ? 1 : width < 1024 ? 2 : 3;
+    if (next !== this.visibleTestimonials()) {
+      this.visibleTestimonials.set(next);
+      // Clamp the current index so it stays in range for the new card count -
+      // otherwise resizing from desktop (index up to length-3) down to mobile
+      // (only length-1 valid) could point past the end and render blank.
+      const max = Math.max(0, this.testimonials.length - next);
+      this.testimonialIndex.update((i) => Math.min(i, max));
+    }
   }
 
   ngOnInit(): void {
@@ -348,6 +366,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.observers.forEach((o) => o.disconnect());
+    if (this.resizeListener) {
+      window.removeEventListener('resize', this.resizeListener);
+    }
   }
 
   protected toggleFaq(id: number): void {
@@ -355,12 +376,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   protected prevTestimonial(): void {
-    const max = Math.max(0, this.testimonials.length - this.visibleTestimonials);
+    const max = Math.max(0, this.testimonials.length - this.visibleTestimonials());
     this.testimonialIndex.update((i) => (i <= 0 ? max : i - 1));
   }
 
   protected nextTestimonial(): void {
-    const max = Math.max(0, this.testimonials.length - this.visibleTestimonials);
+    const max = Math.max(0, this.testimonials.length - this.visibleTestimonials());
     this.testimonialIndex.update((i) => (i >= max ? 0 : i + 1));
   }
 

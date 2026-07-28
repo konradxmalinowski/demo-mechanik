@@ -18,16 +18,17 @@ import { EstimatorSignals } from './estimator.signals';
   providers: [EstimatorSignals],
   styles: [`
     .cat-btn { border-radius: .75rem; border: 1px solid; padding: 1rem; text-align: left; transition: all .2s; cursor: pointer; }
-    .cat-btn.active { border-color: #EF4444; background: rgba(239,68,68,.1); color: #B91C1C; }
-    :host-context(.dark) .cat-btn.active { color: #f87171; }
+    .cat-btn.active { border-color: var(--apex-accent); background: rgb(var(--apex-accent-rgb) / .1); color: var(--apex-accent); }
+    :host-context(.dark) .cat-btn.active { border-color: var(--apex-accent-dark); background: rgb(var(--apex-accent-dark-rgb) / .1); color: var(--apex-accent-dark); }
     .cat-btn.inactive { border-color: rgba(0,0,0,.1); background: #F9FAFB; color: #374151; }
     :host-context(.dark) .cat-btn.inactive { border-color: rgba(255,255,255,.1); background: #111113; color: #d1d5db; }
     .opt-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 1rem; border-radius: .75rem; border: 1px solid; text-align: left; transition: all .2s; cursor: pointer; }
-    .opt-btn.active { border-color: #EF4444; background: rgba(239,68,68,.1); }
+    .opt-btn.active { border-color: var(--apex-accent); background: rgb(var(--apex-accent-rgb) / .1); }
+    :host-context(.dark) .opt-btn.active { border-color: var(--apex-accent-dark); background: rgb(var(--apex-accent-dark-rgb) / .1); }
     .opt-btn.inactive { border-color: rgba(0,0,0,.1); background: #F9FAFB; }
     :host-context(.dark) .opt-btn.inactive { border-color: rgba(255,255,255,.1); background: #111113; }
-    .opt-price.active { color: #B91C1C; }
-    :host-context(.dark) .opt-price.active { color: #f87171; }
+    .opt-price.active { color: var(--apex-accent); }
+    :host-context(.dark) .opt-price.active { color: var(--apex-accent-dark); }
     .opt-price.inactive { color: #4B5563; }
     :host-context(.dark) .opt-price.inactive { color: #9ca3af; }
   `],
@@ -38,7 +39,7 @@ import { EstimatorSignals } from './estimator.signals';
           <ol class="flex items-center gap-2">
             <li><a routerLink="/" class="hover:text-mechanik-noir dark:hover:text-white transition-colors">Start</a></li>
             <li>/</li>
-            <li class="text-red-600 dark:text-red-400" aria-current="page">Kalkulator</li>
+            <li class="text-mechanik-red-light-text dark:text-mechanik-red-dark-text" aria-current="page">Kalkulator</li>
           </ol>
         </nav>
 
@@ -88,7 +89,7 @@ import { EstimatorSignals } from './estimator.signals';
           @if (est.estimate() !== null) {
             <div class="rounded-2xl p-8 text-center bg-gray-50 dark:bg-mechanik-surface border border-mechanik-red/30">
               <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Szacunkowy koszt</p>
-              <p class="font-black mb-1 text-red-600 dark:text-red-400" style="font-size:3rem">
+              <p class="font-black mb-1 text-mechanik-red-light-text dark:text-mechanik-red-dark-text" style="font-size:3rem">
                 {{ est.estimate() | number:'1.0-0' }}
                 <span class="text-2xl font-semibold text-gray-600 dark:text-gray-400">zł</span>
               </p>
